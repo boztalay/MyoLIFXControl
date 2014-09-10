@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FBDCB86919C0DFE000D4EDEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86819C0DFE000D4EDEF /* Foundation.framework */; };
+		FBDCB86B19C0DFE000D4EDEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86A19C0DFE000D4EDEF /* CoreGraphics.framework */; };
+		FBDCB86D19C0DFE000D4EDEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86C19C0DFE000D4EDEF /* UIKit.framework */; };
+		FBDCB87319C0DFE000D4EDEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB87119C0DFE000D4EDEF /* InfoPlist.strings */; };
+		FBDCB87519C0DFE000D4EDEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB87419C0DFE000D4EDEF /* main.m */; };
+		FBDCB87919C0DFE000D4EDEF /* BOZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB87819C0DFE000D4EDEF /* BOZAppDelegate.m */; };
+		FBDCB87B19C0DFE000D4EDEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB87A19C0DFE000D4EDEF /* Images.xcassets */; };
+		FBDCB88219C0DFE000D4EDEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB88119C0DFE000D4EDEF /* XCTest.framework */; };
+		FBDCB88319C0DFE000D4EDEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86819C0DFE000D4EDEF /* Foundation.framework */; };
+		FBDCB88419C0DFE000D4EDEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86C19C0DFE000D4EDEF /* UIKit.framework */; };
+		FBDCB88C19C0DFE000D4EDEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB88A19C0DFE000D4EDEF /* InfoPlist.strings */; };
+		FBDCB88E19C0DFE000D4EDEF /* MyoLIFXControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB88D19C0DFE000D4EDEF /* MyoLIFXControlTests.m */; };
+		FBDCB89D19C0E06C00D4EDEF /* libLIFXKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB89C19C0E05200D4EDEF /* libLIFXKit.a */; };
+		FBDCB89F19C0E07B00D4EDEF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB89E19C0E07B00D4EDEF /* SystemConfiguration.framework */; };
+		FBDCB8A119C0E08200D4EDEF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB8A019C0E08200D4EDEF /* libz.dylib */; };
+		FBDCB8A919C0E0F900D4EDEF /* BOZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB8A719C0E0F900D4EDEF /* BOZHomeViewController.m */; };
+		FBDCB8AA19C0E0F900D4EDEF /* BOZHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB8A819C0E0F900D4EDEF /* BOZHomeViewController.xib */; };
+		FBDCB8B119C0F00700D4EDEF /* BOZLightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB8AF19C0F00700D4EDEF /* BOZLightTableViewCell.m */; };
+		FBDCB8B219C0F00700D4EDEF /* BOZLightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB8B019C0F00700D4EDEF /* BOZLightTableViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FBDCB88519C0DFE000D4EDEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBDCB85D19C0DFDF00D4EDEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FBDCB86419C0DFE000D4EDEF;
+			remoteInfo = MyoLIFXControl;
+		};
+		FBDCB89B19C0E05200D4EDEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBDCB89719C0E05200D4EDEF /* LIFXKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 01A9104D18D027B200AD0A54;
+			remoteInfo = "LIFXKit Static Library";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FBDCB86519C0DFE000D4EDEF /* MyoLIFXControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyoLIFXControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBDCB86819C0DFE000D4EDEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FBDCB86A19C0DFE000D4EDEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FBDCB86C19C0DFE000D4EDEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FBDCB87019C0DFE000D4EDEF /* MyoLIFXControl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyoLIFXControl-Info.plist"; sourceTree = "<group>"; };
+		FBDCB87219C0DFE000D4EDEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBDCB87419C0DFE000D4EDEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FBDCB87619C0DFE000D4EDEF /* MyoLIFXControl-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyoLIFXControl-Prefix.pch"; sourceTree = "<group>"; };
+		FBDCB87719C0DFE000D4EDEF /* BOZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BOZAppDelegate.h; sourceTree = "<group>"; };
+		FBDCB87819C0DFE000D4EDEF /* BOZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BOZAppDelegate.m; sourceTree = "<group>"; };
+		FBDCB87A19C0DFE000D4EDEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FBDCB88019C0DFE000D4EDEF /* MyoLIFXControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyoLIFXControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBDCB88119C0DFE000D4EDEF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FBDCB88919C0DFE000D4EDEF /* MyoLIFXControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyoLIFXControlTests-Info.plist"; sourceTree = "<group>"; };
+		FBDCB88B19C0DFE000D4EDEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBDCB88D19C0DFE000D4EDEF /* MyoLIFXControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyoLIFXControlTests.m; sourceTree = "<group>"; };
+		FBDCB89719C0E05200D4EDEF /* LIFXKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LIFXKit.xcodeproj; path = MyoLIFXControl/LIFXKit/LIFXKit.xcodeproj; sourceTree = "<group>"; };
+		FBDCB89E19C0E07B00D4EDEF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FBDCB8A019C0E08200D4EDEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FBDCB8A619C0E0F900D4EDEF /* BOZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZHomeViewController.h; sourceTree = "<group>"; };
+		FBDCB8A719C0E0F900D4EDEF /* BOZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZHomeViewController.m; sourceTree = "<group>"; };
+		FBDCB8A819C0E0F900D4EDEF /* BOZHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BOZHomeViewController.xib; sourceTree = "<group>"; };
+		FBDCB8AE19C0F00700D4EDEF /* BOZLightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZLightTableViewCell.h; sourceTree = "<group>"; };
+		FBDCB8AF19C0F00700D4EDEF /* BOZLightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZLightTableViewCell.m; sourceTree = "<group>"; };
+		FBDCB8B019C0F00700D4EDEF /* BOZLightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BOZLightTableViewCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FBDCB86219C0DFE000D4EDEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDCB8A119C0E08200D4EDEF /* libz.dylib in Frameworks */,
+				FBDCB89F19C0E07B00D4EDEF /* SystemConfiguration.framework in Frameworks */,
+				FBDCB89D19C0E06C00D4EDEF /* libLIFXKit.a in Frameworks */,
+				FBDCB86B19C0DFE000D4EDEF /* CoreGraphics.framework in Frameworks */,
+				FBDCB86D19C0DFE000D4EDEF /* UIKit.framework in Frameworks */,
+				FBDCB86919C0DFE000D4EDEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDCB87D19C0DFE000D4EDEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDCB88219C0DFE000D4EDEF /* XCTest.framework in Frameworks */,
+				FBDCB88419C0DFE000D4EDEF /* UIKit.framework in Frameworks */,
+				FBDCB88319C0DFE000D4EDEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FBDCB85C19C0DFDF00D4EDEF = {
+			isa = PBXGroup;
+			children = (
+				FBDCB89719C0E05200D4EDEF /* LIFXKit.xcodeproj */,
+				FBDCB86E19C0DFE000D4EDEF /* MyoLIFXControl */,
+				FBDCB88719C0DFE000D4EDEF /* MyoLIFXControlTests */,
+				FBDCB86719C0DFE000D4EDEF /* Frameworks */,
+				FBDCB86619C0DFE000D4EDEF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FBDCB86619C0DFE000D4EDEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB86519C0DFE000D4EDEF /* MyoLIFXControl.app */,
+				FBDCB88019C0DFE000D4EDEF /* MyoLIFXControlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBDCB86719C0DFE000D4EDEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB8A019C0E08200D4EDEF /* libz.dylib */,
+				FBDCB89E19C0E07B00D4EDEF /* SystemConfiguration.framework */,
+				FBDCB86819C0DFE000D4EDEF /* Foundation.framework */,
+				FBDCB86A19C0DFE000D4EDEF /* CoreGraphics.framework */,
+				FBDCB86C19C0DFE000D4EDEF /* UIKit.framework */,
+				FBDCB88119C0DFE000D4EDEF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBDCB86E19C0DFE000D4EDEF /* MyoLIFXControl */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB87719C0DFE000D4EDEF /* BOZAppDelegate.h */,
+				FBDCB87819C0DFE000D4EDEF /* BOZAppDelegate.m */,
+				FBDCB8A219C0E0AF00D4EDEF /* Home */,
+				FBDCB87A19C0DFE000D4EDEF /* Images.xcassets */,
+				FBDCB86F19C0DFE000D4EDEF /* Supporting Files */,
+			);
+			path = MyoLIFXControl;
+			sourceTree = "<group>";
+		};
+		FBDCB86F19C0DFE000D4EDEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB87019C0DFE000D4EDEF /* MyoLIFXControl-Info.plist */,
+				FBDCB87119C0DFE000D4EDEF /* InfoPlist.strings */,
+				FBDCB87419C0DFE000D4EDEF /* main.m */,
+				FBDCB87619C0DFE000D4EDEF /* MyoLIFXControl-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBDCB88719C0DFE000D4EDEF /* MyoLIFXControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB88D19C0DFE000D4EDEF /* MyoLIFXControlTests.m */,
+				FBDCB88819C0DFE000D4EDEF /* Supporting Files */,
+			);
+			path = MyoLIFXControlTests;
+			sourceTree = "<group>";
+		};
+		FBDCB88819C0DFE000D4EDEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB88919C0DFE000D4EDEF /* MyoLIFXControlTests-Info.plist */,
+				FBDCB88A19C0DFE000D4EDEF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBDCB89819C0E05200D4EDEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB89C19C0E05200D4EDEF /* libLIFXKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBDCB8A219C0E0AF00D4EDEF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB8A619C0E0F900D4EDEF /* BOZHomeViewController.h */,
+				FBDCB8A719C0E0F900D4EDEF /* BOZHomeViewController.m */,
+				FBDCB8A819C0E0F900D4EDEF /* BOZHomeViewController.xib */,
+				FBDCB8AE19C0F00700D4EDEF /* BOZLightTableViewCell.h */,
+				FBDCB8AF19C0F00700D4EDEF /* BOZLightTableViewCell.m */,
+				FBDCB8B019C0F00700D4EDEF /* BOZLightTableViewCell.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FBDCB86419C0DFE000D4EDEF /* MyoLIFXControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBDCB89119C0DFE000D4EDEF /* Build configuration list for PBXNativeTarget "MyoLIFXControl" */;
+			buildPhases = (
+				FBDCB86119C0DFE000D4EDEF /* Sources */,
+				FBDCB86219C0DFE000D4EDEF /* Frameworks */,
+				FBDCB86319C0DFE000D4EDEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyoLIFXControl;
+			productName = MyoLIFXControl;
+			productReference = FBDCB86519C0DFE000D4EDEF /* MyoLIFXControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FBDCB87F19C0DFE000D4EDEF /* MyoLIFXControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBDCB89419C0DFE000D4EDEF /* Build configuration list for PBXNativeTarget "MyoLIFXControlTests" */;
+			buildPhases = (
+				FBDCB87C19C0DFE000D4EDEF /* Sources */,
+				FBDCB87D19C0DFE000D4EDEF /* Frameworks */,
+				FBDCB87E19C0DFE000D4EDEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBDCB88619C0DFE000D4EDEF /* PBXTargetDependency */,
+			);
+			name = MyoLIFXControlTests;
+			productName = MyoLIFXControlTests;
+			productReference = FBDCB88019C0DFE000D4EDEF /* MyoLIFXControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FBDCB85D19C0DFDF00D4EDEF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BOZ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Ben Oztalay";
+				TargetAttributes = {
+					FBDCB86419C0DFE000D4EDEF = {
+						DevelopmentTeam = FMKG4J2L9M;
+					};
+					FBDCB87F19C0DFE000D4EDEF = {
+						TestTargetID = FBDCB86419C0DFE000D4EDEF;
+					};
+				};
+			};
+			buildConfigurationList = FBDCB86019C0DFDF00D4EDEF /* Build configuration list for PBXProject "MyoLIFXControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FBDCB85C19C0DFDF00D4EDEF;
+			productRefGroup = FBDCB86619C0DFE000D4EDEF /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FBDCB89819C0E05200D4EDEF /* Products */;
+					ProjectRef = FBDCB89719C0E05200D4EDEF /* LIFXKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				FBDCB86419C0DFE000D4EDEF /* MyoLIFXControl */,
+				FBDCB87F19C0DFE000D4EDEF /* MyoLIFXControlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FBDCB89C19C0E05200D4EDEF /* libLIFXKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLIFXKit.a;
+			remoteRef = FBDCB89B19C0E05200D4EDEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FBDCB86319C0DFE000D4EDEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDCB8B219C0F00700D4EDEF /* BOZLightTableViewCell.xib in Resources */,
+				FBDCB87319C0DFE000D4EDEF /* InfoPlist.strings in Resources */,
+				FBDCB87B19C0DFE000D4EDEF /* Images.xcassets in Resources */,
+				FBDCB8AA19C0E0F900D4EDEF /* BOZHomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDCB87E19C0DFE000D4EDEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDCB88C19C0DFE000D4EDEF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FBDCB86119C0DFE000D4EDEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDCB8B119C0F00700D4EDEF /* BOZLightTableViewCell.m in Sources */,
+				FBDCB8A919C0E0F900D4EDEF /* BOZHomeViewController.m in Sources */,
+				FBDCB87919C0DFE000D4EDEF /* BOZAppDelegate.m in Sources */,
+				FBDCB87519C0DFE000D4EDEF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDCB87C19C0DFE000D4EDEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDCB88E19C0DFE000D4EDEF /* MyoLIFXControlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FBDCB88619C0DFE000D4EDEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FBDCB86419C0DFE000D4EDEF /* MyoLIFXControl */;
+			targetProxy = FBDCB88519C0DFE000D4EDEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FBDCB87119C0DFE000D4EDEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBDCB87219C0DFE000D4EDEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FBDCB88A19C0DFE000D4EDEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBDCB88B19C0DFE000D4EDEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FBDCB88F19C0DFE000D4EDEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		FBDCB89019C0DFE000D4EDEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FBDCB89219C0DFE000D4EDEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyoLIFXControl/MyoLIFXControl-Prefix.pch";
+				INFOPLIST_FILE = "MyoLIFXControl/MyoLIFXControl-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FBDCB89319C0DFE000D4EDEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyoLIFXControl/MyoLIFXControl-Prefix.pch";
+				INFOPLIST_FILE = "MyoLIFXControl/MyoLIFXControl-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FBDCB89519C0DFE000D4EDEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyoLIFXControl.app/MyoLIFXControl";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyoLIFXControl/MyoLIFXControl-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MyoLIFXControlTests/MyoLIFXControlTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FBDCB89619C0DFE000D4EDEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyoLIFXControl.app/MyoLIFXControl";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyoLIFXControl/MyoLIFXControl-Prefix.pch";
+				INFOPLIST_FILE = "MyoLIFXControlTests/MyoLIFXControlTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FBDCB86019C0DFDF00D4EDEF /* Build configuration list for PBXProject "MyoLIFXControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDCB88F19C0DFE000D4EDEF /* Debug */,
+				FBDCB89019C0DFE000D4EDEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBDCB89119C0DFE000D4EDEF /* Build configuration list for PBXNativeTarget "MyoLIFXControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDCB89219C0DFE000D4EDEF /* Debug */,
+				FBDCB89319C0DFE000D4EDEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FBDCB89419C0DFE000D4EDEF /* Build configuration list for PBXNativeTarget "MyoLIFXControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDCB89519C0DFE000D4EDEF /* Debug */,
+				FBDCB89619C0DFE000D4EDEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FBDCB85D19C0DFDF00D4EDEF /* Project object */;
+}
