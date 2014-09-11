@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="420" y="142"/>
         </scene>
-        <!--Light View Controller - Light-->
+        <!--Light View Controller - No Light Selected-->
         <scene sceneID="eV7-qk-I0o">
             <objects>
                 <viewController id="gXu-O3-dS9" customClass="BOZLightViewController" sceneMemberID="viewController">
@@ -40,22 +40,37 @@
                                 <rect key="frame" x="300" y="131" width="355" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.97437995672225952" green="0.17238615453243256" blue="0.19237273931503296" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="gXu-O3-dS9" eventType="valueChanged" id="Pvg-sR-MfD"/>
+                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpInside" id="GFH-mC-XGU"/>
+                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpOutside" id="Ngv-ga-a1x"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XL8-ZW-vQa">
                                 <rect key="frame" x="300" y="200" width="355" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.24018819630146027" green="1" blue="0.24745678901672363" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="gXu-O3-dS9" eventType="valueChanged" id="TB7-57-Yx3"/>
+                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpOutside" id="FtB-41-4eY"/>
+                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpInside" id="gJj-5d-gja"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YYf-HL-gGM">
                                 <rect key="frame" x="300" y="271" width="355" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.2403329610824585" green="0.10671830922365189" blue="0.99830764532089233" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="gXu-O3-dS9" eventType="valueChanged" id="hz6-6l-I92"/>
+                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpInside" id="QEU-hz-j4u"/>
+                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpOutside" id="gYE-jK-J1D"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Light" id="UuH-mc-Z4e"/>
+                    <navigationItem key="navigationItem" title="No Light Selected" id="UuH-mc-Z4e"/>
                     <connections>
                         <outlet property="blueSlider" destination="YYf-HL-gGM" id="yN7-lg-tgk"/>
                         <outlet property="colorView" destination="MSd-0C-x0L" id="Jph-9S-bnF"/>
