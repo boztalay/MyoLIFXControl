@@ -51,7 +51,11 @@
 
 - (void)updateTitle
 {
-	self.title = [NSString stringWithFormat:@"Lights (%@)", self.lifxNetworkContext.isConnected ? @"Connected" : @"Searching"];
+    if (self.lifxNetworkContext.isConnected) {
+        self.title = @"Lights";
+    } else {
+        self.title = @"Searching...";
+    }
 }
 
 #pragma mark - LFXLightCollectionObserver
