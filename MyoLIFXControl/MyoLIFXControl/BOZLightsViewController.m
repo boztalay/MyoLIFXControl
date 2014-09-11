@@ -79,7 +79,10 @@
 - (void)light:(LFXLight *)light didChangeLabel:(NSString *)label
 {
 	NSUInteger rowIndex = [self.lights indexOfObject:light];
+    
+    NSIndexPath* cellToReselect = [self.tableView indexPathForSelectedRow];
 	[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:rowIndex inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView selectRowAtIndexPath:cellToReselect animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
 #pragma mark - Table View

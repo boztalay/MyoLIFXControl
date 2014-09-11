@@ -21,6 +21,8 @@
     self.colorView.layer.borderColor = [UIColor clearColor].CGColor;
     
     [self updateColorViewBorder];
+    
+    self.view.userInteractionEnabled = NO;
 }
 
 - (void)setLight:(LFXLight *)light
@@ -29,6 +31,7 @@
     _light = light;
     [self.light addLightObserver:self];
     
+    self.view.userInteractionEnabled = YES;
     [self updateAll];
 }
 
@@ -45,7 +48,24 @@
     [self updateTitle];
 }
 
-- (void)updateLightColorFromSliders
+- (void)light:(LFXLight *)light didChangePowerState:(LFXPowerState)powerState
+{
+    [self updatePowerSwitchFromLight];
+}
+
+#pragma mark - Sliders
+
+- (IBAction)sliderValueChanged:(id)sender
+{
+    [self updateColorViewFromSliders];
+}
+
+- (IBAction)sliderValueFinishedChanging:(id)sender
+{
+    [self setLightColorFromSliders];
+}
+
+- (void)setLightColorFromSliders
 {
     UIColor* colorFromSliders = [self getColorFromSliders];
     CGFloat hue, saturation, brightness, alpha;
@@ -59,16 +79,39 @@
     return [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0f];
 }
 
-#pragma mark - Sliders
-
-- (IBAction)sliderValueChanged:(id)sender
+- (void)enableSliders
 {
-    [self updateColorViewFromSliders];
+    self.redSlider.userInteractionEnabled = YES;
+    self.greenSlider.userInteractionEnabled = YES;
+    self.blueSlider.userInteractionEnabled = YES;
 }
 
-- (IBAction)sliderValueFinishedChanging:(id)sender
+- (void)disableSliders
 {
-    [self updateLightColorFromSliders];
+    self.redSlider.userInteractionEnabled = NO;
+    self.greenSlider.userInteractionEnabled = NO;
+    self.blueSlider.userInteractionEnabled = NO;
+}
+
+#pragma mark - Power Switch
+
+- (IBAction)powerSwitchValueChanged:(id)sender
+{
+    if(self.powerSwitch.isOn) {
+        [self.light setPowerState:LFXPowerStateOn];
+    } else {
+        [self.light setPowerState:LFXPowerStateOff];
+    }
+}
+
+#pragma mark - Label
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.labelLabel resignFirstResponder];
+    [self.light setLabel:textField.text];
+    
+    return YES;
 }
 
 #pragma mark - Updating Views
@@ -82,16 +125,23 @@
     [self updateTitle];
     [self updateColorViewFromLight];
     [self updateSlidersFromLight];
+    [self updatePowerSwitchFromLight];
 }
+
+#pragma mark Title
 
 - (void)updateTitle
 {
-    if(self.light.label.length > 0) {
-        self.title = self.light.label;
-    } else {
-        self.title = self.light.deviceID;
-    }
+    self.title = self.light.deviceID;
+    [self updateLabel];
 }
+
+- (void)updateLabel
+{
+    self.labelLabel.text = self.light.label;
+}
+
+#pragma mark Color View
 
 - (void)updateColorViewFromLight
 {
@@ -111,22 +161,36 @@
     CGFloat hue, saturation, brightness, alpha;
     [self.colorView.backgroundColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
     
-    CGFloat colorViewBorderAlpha = 1.0f - saturation;
-    if(saturation < 0.001f && brightness < 0.001f) {
-        colorViewBorderAlpha = 0.0f;
-    }
+    CGFloat colorViewBorderAlpha = (1.0f - saturation) * brightness;
     
     self.colorView.layer.borderColor = [UIColor colorWithWhite:0.85f alpha:colorViewBorderAlpha].CGColor;
 }
+
+#pragma mark Sliders
 
 - (void)updateSlidersFromLight
 {
     UIColor* lightColor = [self.light.color UIColor];
     const CGFloat* colorComponents = CGColorGetComponents(lightColor.CGColor);
 
-    self.redSlider.value = colorComponents[0];
-    self.greenSlider.value = colorComponents[1];
-    self.blueSlider.value = colorComponents[2];
+    [UIView animateWithDuration:0.3 animations:^(void) {
+        [self.redSlider setValue:colorComponents[0] animated:YES];
+        [self.greenSlider setValue:colorComponents[1] animated:YES];
+        [self.blueSlider setValue:colorComponents[2] animated:YES];
+    }];
+}
+
+#pragma mark Power Switch
+
+- (void)updatePowerSwitchFromLight
+{
+    if(self.light.powerState == LFXPowerStateOn) {
+        [self.powerSwitch setOn:YES animated:YES];
+        [self enableSliders];
+    } else {
+        [self.powerSwitch setOn:NO animated:YES];
+        [self disableSliders];
+    }
 }
 
 @end

@@ -66,6 +66,22 @@
                                     <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpOutside" id="gYE-jK-J1D"/>
                                 </connections>
                             </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3QQ-Oh-4sP">
+                                <rect key="frame" x="302" y="332" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="powerSwitchValueChanged:" destination="gXu-O3-dS9" eventType="valueChanged" id="Yh6-VL-TNp"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bulb Label" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yiU-1X-oOr">
+                                <rect key="frame" x="364" y="333" width="289" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gXu-O3-dS9" id="qeA-Tn-yZx"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -75,12 +91,14 @@
                         <outlet property="blueSlider" destination="YYf-HL-gGM" id="yN7-lg-tgk"/>
                         <outlet property="colorView" destination="MSd-0C-x0L" id="Jph-9S-bnF"/>
                         <outlet property="greenSlider" destination="XL8-ZW-vQa" id="a7y-tU-Irv"/>
+                        <outlet property="labelLabel" destination="yiU-1X-oOr" id="0ct-G1-fIl"/>
+                        <outlet property="powerSwitch" destination="3QQ-Oh-4sP" id="a4R-a2-aEI"/>
                         <outlet property="redSlider" destination="n59-wq-i7M" id="pFO-8z-dpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6GV-IX-cuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1288" y="142"/>
+            <point key="canvasLocation" x="1324" y="142"/>
         </scene>
         <!--Lights View Controller - Lights-->
         <scene sceneID="JY8-0j-bRh">
