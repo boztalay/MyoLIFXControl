@@ -22,10 +22,10 @@
 		FBDCB89D19C0E06C00D4EDEF /* libLIFXKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB89C19C0E05200D4EDEF /* libLIFXKit.a */; };
 		FBDCB89F19C0E07B00D4EDEF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB89E19C0E07B00D4EDEF /* SystemConfiguration.framework */; };
 		FBDCB8A119C0E08200D4EDEF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB8A019C0E08200D4EDEF /* libz.dylib */; };
-		FBDCB8A919C0E0F900D4EDEF /* BOZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB8A719C0E0F900D4EDEF /* BOZHomeViewController.m */; };
-		FBDCB8AA19C0E0F900D4EDEF /* BOZHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB8A819C0E0F900D4EDEF /* BOZHomeViewController.xib */; };
+		FBDCB8A919C0E0F900D4EDEF /* BOZLightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB8A719C0E0F900D4EDEF /* BOZLightsViewController.m */; };
 		FBDCB8B119C0F00700D4EDEF /* BOZLightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB8AF19C0F00700D4EDEF /* BOZLightTableViewCell.m */; };
-		FBDCB8B219C0F00700D4EDEF /* BOZLightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB8B019C0F00700D4EDEF /* BOZLightTableViewCell.xib */; };
+		FBDCB8B419C118B900D4EDEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB8B319C118B900D4EDEF /* Main.storyboard */; };
+		FBDCB8B819C129FB00D4EDEF /* BOZLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB8B719C129FB00D4EDEF /* BOZLightViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +65,13 @@
 		FBDCB89719C0E05200D4EDEF /* LIFXKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LIFXKit.xcodeproj; path = MyoLIFXControl/LIFXKit/LIFXKit.xcodeproj; sourceTree = "<group>"; };
 		FBDCB89E19C0E07B00D4EDEF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBDCB8A019C0E08200D4EDEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		FBDCB8A619C0E0F900D4EDEF /* BOZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZHomeViewController.h; sourceTree = "<group>"; };
-		FBDCB8A719C0E0F900D4EDEF /* BOZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZHomeViewController.m; sourceTree = "<group>"; };
-		FBDCB8A819C0E0F900D4EDEF /* BOZHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BOZHomeViewController.xib; sourceTree = "<group>"; };
+		FBDCB8A619C0E0F900D4EDEF /* BOZLightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZLightsViewController.h; sourceTree = "<group>"; };
+		FBDCB8A719C0E0F900D4EDEF /* BOZLightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZLightsViewController.m; sourceTree = "<group>"; };
 		FBDCB8AE19C0F00700D4EDEF /* BOZLightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZLightTableViewCell.h; sourceTree = "<group>"; };
 		FBDCB8AF19C0F00700D4EDEF /* BOZLightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZLightTableViewCell.m; sourceTree = "<group>"; };
-		FBDCB8B019C0F00700D4EDEF /* BOZLightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BOZLightTableViewCell.xib; sourceTree = "<group>"; };
+		FBDCB8B319C118B900D4EDEF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FBDCB8B619C129FB00D4EDEF /* BOZLightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZLightViewController.h; sourceTree = "<group>"; };
+		FBDCB8B719C129FB00D4EDEF /* BOZLightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZLightViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +139,9 @@
 			children = (
 				FBDCB87719C0DFE000D4EDEF /* BOZAppDelegate.h */,
 				FBDCB87819C0DFE000D4EDEF /* BOZAppDelegate.m */,
-				FBDCB8A219C0E0AF00D4EDEF /* Home */,
+				FBDCB8B319C118B900D4EDEF /* Main.storyboard */,
+				FBDCB8A219C0E0AF00D4EDEF /* Lights */,
+				FBDCB8B519C129E100D4EDEF /* Light */,
 				FBDCB87A19C0DFE000D4EDEF /* Images.xcassets */,
 				FBDCB86F19C0DFE000D4EDEF /* Supporting Files */,
 			);
@@ -182,17 +185,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FBDCB8A219C0E0AF00D4EDEF /* Home */ = {
+		FBDCB8A219C0E0AF00D4EDEF /* Lights */ = {
 			isa = PBXGroup;
 			children = (
-				FBDCB8A619C0E0F900D4EDEF /* BOZHomeViewController.h */,
-				FBDCB8A719C0E0F900D4EDEF /* BOZHomeViewController.m */,
-				FBDCB8A819C0E0F900D4EDEF /* BOZHomeViewController.xib */,
+				FBDCB8A619C0E0F900D4EDEF /* BOZLightsViewController.h */,
+				FBDCB8A719C0E0F900D4EDEF /* BOZLightsViewController.m */,
 				FBDCB8AE19C0F00700D4EDEF /* BOZLightTableViewCell.h */,
 				FBDCB8AF19C0F00700D4EDEF /* BOZLightTableViewCell.m */,
-				FBDCB8B019C0F00700D4EDEF /* BOZLightTableViewCell.xib */,
 			);
-			name = Home;
+			name = Lights;
+			sourceTree = "<group>";
+		};
+		FBDCB8B519C129E100D4EDEF /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB8B619C129FB00D4EDEF /* BOZLightViewController.h */,
+				FBDCB8B719C129FB00D4EDEF /* BOZLightViewController.m */,
+			);
+			name = Light;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,10 +300,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBDCB8B219C0F00700D4EDEF /* BOZLightTableViewCell.xib in Resources */,
+				FBDCB8B419C118B900D4EDEF /* Main.storyboard in Resources */,
 				FBDCB87319C0DFE000D4EDEF /* InfoPlist.strings in Resources */,
 				FBDCB87B19C0DFE000D4EDEF /* Images.xcassets in Resources */,
-				FBDCB8AA19C0E0F900D4EDEF /* BOZHomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,9 +322,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBDCB8B119C0F00700D4EDEF /* BOZLightTableViewCell.m in Sources */,
-				FBDCB8A919C0E0F900D4EDEF /* BOZHomeViewController.m in Sources */,
+				FBDCB8A919C0E0F900D4EDEF /* BOZLightsViewController.m in Sources */,
 				FBDCB87919C0DFE000D4EDEF /* BOZAppDelegate.m in Sources */,
 				FBDCB87519C0DFE000D4EDEF /* main.m in Sources */,
+				FBDCB8B819C129FB00D4EDEF /* BOZLightViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

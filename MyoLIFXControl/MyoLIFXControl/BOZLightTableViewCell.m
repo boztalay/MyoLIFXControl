@@ -10,14 +10,15 @@
 
 @implementation BOZLightTableViewCell
 
-+ (NSString*)nibName
-{
-    return @"BOZLightTableViewCell";
-}
-
 + (NSString*)reuseIdentifier
 {
     return @"LightCell";
+}
+
+- (void)setWithLight:(LFXLight*)light
+{
+    self.textLabel.text = light.label;
+    self.detailTextLabel.text = light.deviceID;
 }
 
 @end

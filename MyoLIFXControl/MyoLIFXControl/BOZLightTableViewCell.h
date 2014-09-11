@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LIFXKit/LIFXKit.h>
 
 @interface BOZLightTableViewCell : UITableViewCell
 
-+ (NSString*)nibName;
 + (NSString*)reuseIdentifier;
+
+- (void)setWithLight:(LFXLight*)light;
 
 @end

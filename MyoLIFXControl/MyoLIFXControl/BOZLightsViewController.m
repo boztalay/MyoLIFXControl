@@ -6,41 +6,28 @@
 //  Copyright (c) 2014 Ben Oztalay. All rights reserved.
 //
 
-#import "BOZHomeViewController.h"
+#import "BOZLightsViewController.h"
 #import "BOZLightTableViewCell.h"
 #import <LIFXKit/LIFXKit.h>
 
-@interface BOZHomeViewController () <LFXNetworkContextObserver, LFXLightCollectionObserver, LFXLightObserver>
+@interface BOZLightsViewController () <LFXNetworkContextObserver, LFXLightCollectionObserver, LFXLightObserver>
 
 @property (nonatomic) LFXNetworkContext *lifxNetworkContext;
 @property (nonatomic) NSArray *lights;
 
 @end
 
-@implementation BOZHomeViewController
-
-+ (NSString*)nibName
-{
-    return @"BOZHomeViewController";
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.lifxNetworkContext = [LFXClient sharedClient].localNetworkContext;
-		[self.lifxNetworkContext addNetworkContextObserver:self];
-		[self.lifxNetworkContext.allLightsCollection addLightCollectionObserver:self];
-    }
-    return self;
-}
+@implementation BOZLightsViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self.tableView registerNib:[UINib nibWithNibName:[BOZLightTableViewCell nibName] bundle:nil]
-         forCellReuseIdentifier:[BOZLightTableViewCell reuseIdentifier]];
+    self.lightViewController = (BOZLightViewController*)[[self.splitViewController.viewControllers objectAtIndex:1] topViewController];
+    
+    self.lifxNetworkContext = [LFXClient sharedClient].localNetworkContext;
+    [self.lifxNetworkContext addNetworkContextObserver:self];
+    [self.lifxNetworkContext.allLightsCollection addLightCollectionObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -50,52 +37,47 @@
 	[self updateLights];
 }
 
-- (void)updateLights
-{
-	self.lights = self.lifxNetworkContext.allLightsCollection.lights;
-	[self.tableView reloadData];
-}
-
-- (void)updateTitle
-{
-	self.statusLabel.text = [NSString stringWithFormat:@"LIFX Browser (%@)", self.lifxNetworkContext.isConnected ? @"connected" : @"searching"];
-}
-
 #pragma mark - LFXNetworkContextObserver
 
 - (void)networkContextDidConnect:(LFXNetworkContext *)networkContext
 {
-	NSLog(@"Network Context Did Connect");
 	[self updateTitle];
 }
 
 - (void)networkContextDidDisconnect:(LFXNetworkContext *)networkContext
 {
-	NSLog(@"Network Context Did Disconnect");
 	[self updateTitle];
+}
+
+- (void)updateTitle
+{
+	self.title = [NSString stringWithFormat:@"Lights (%@)", self.lifxNetworkContext.isConnected ? @"Connected" : @"Searching"];
 }
 
 #pragma mark - LFXLightCollectionObserver
 
 - (void)lightCollection:(LFXLightCollection *)lightCollection didAddLight:(LFXLight *)light
 {
-	NSLog(@"Light Collection: %@ Did Add Light: %@", lightCollection, light);
 	[light addLightObserver:self];
 	[self updateLights];
 }
 
 - (void)lightCollection:(LFXLightCollection *)lightCollection didRemoveLight:(LFXLight *)light
 {
-	NSLog(@"Light Collection: %@ Did Remove Light: %@", lightCollection, light);
 	[light removeLightObserver:self];
 	[self updateLights];
+}
+
+- (void)updateLights
+{
+	self.lights = self.lifxNetworkContext.allLightsCollection.lights;
+	[self.tableView reloadData];
 }
 
 #pragma mark - LFXLightObserver
 
 - (void)light:(LFXLight *)light didChangeLabel:(NSString *)label
 {
-	NSLog(@"Light: %@ Did Change Label: %@", light, label);
 	NSUInteger rowIndex = [self.lights indexOfObject:light];
 	[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:rowIndex inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 }
@@ -114,14 +96,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[BOZLightTableViewCell reuseIdentifier] forIndexPath:indexPath];
+    BOZLightTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:[BOZLightTableViewCell reuseIdentifier] forIndexPath:indexPath];
     
-    LFXLight *light = self.lights[indexPath.row];
-    
-    cell.textLabel.text = light.label;
-    cell.detailTextLabel.text = light.deviceID;
+    LFXLight* light = self.lights[indexPath.row];
+    [cell setWithLight:light];
 	
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LFXLight* light = self.lights[indexPath.row];
+    self.lightViewController.light = light;
 }
 
 @end

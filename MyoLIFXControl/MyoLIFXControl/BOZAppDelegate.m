@@ -7,18 +7,11 @@
 //
 
 #import "BOZAppDelegate.h"
-#import "BOZHomeViewController.h"
 
 @implementation BOZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    self.window.rootViewController = [[BOZHomeViewController alloc] initWithNibName:[BOZHomeViewController nibName] bundle:nil];
-    
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
