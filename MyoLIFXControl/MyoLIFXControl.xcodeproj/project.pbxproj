@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		FB47EAB419F2DF7400CFD315 /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB47EAB319F2DF7400CFD315 /* MyoKit.framework */; };
 		FB47EAB719F2DF8400CFD315 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB47EAB619F2DF8400CFD315 /* CoreBluetooth.framework */; };
+		FB47EABD19F30D1300CFD315 /* BOZMyoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB47EABC19F30D1300CFD315 /* BOZMyoView.m */; };
+		FB47EAC019F30D2100CFD315 /* BOZLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB47EABF19F30D2100CFD315 /* BOZLightView.m */; };
+		FB47EAC219F30D7200CFD315 /* BOZLightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB47EAC119F30D7200CFD315 /* BOZLightView.xib */; };
+		FB47EAC419F3338B00CFD315 /* BOZMyoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB47EAC319F3338B00CFD315 /* BOZMyoView.xib */; };
 		FBDCB86919C0DFE000D4EDEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86819C0DFE000D4EDEF /* Foundation.framework */; };
 		FBDCB86B19C0DFE000D4EDEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86A19C0DFE000D4EDEF /* CoreGraphics.framework */; };
 		FBDCB86D19C0DFE000D4EDEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86C19C0DFE000D4EDEF /* UIKit.framework */; };
@@ -50,6 +54,12 @@
 /* Begin PBXFileReference section */
 		FB47EAB319F2DF7400CFD315 /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = MyoLIFXControl/MyoKit.framework; sourceTree = "<group>"; };
 		FB47EAB619F2DF8400CFD315 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		FB47EABB19F30D1300CFD315 /* BOZMyoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZMyoView.h; sourceTree = "<group>"; };
+		FB47EABC19F30D1300CFD315 /* BOZMyoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZMyoView.m; sourceTree = "<group>"; };
+		FB47EABE19F30D2100CFD315 /* BOZLightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZLightView.h; sourceTree = "<group>"; };
+		FB47EABF19F30D2100CFD315 /* BOZLightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZLightView.m; sourceTree = "<group>"; };
+		FB47EAC119F30D7200CFD315 /* BOZLightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BOZLightView.xib; sourceTree = "<group>"; };
+		FB47EAC319F3338B00CFD315 /* BOZMyoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BOZMyoView.xib; sourceTree = "<group>"; };
 		FBDCB86519C0DFE000D4EDEF /* MyoLIFXControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyoLIFXControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDCB86819C0DFE000D4EDEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBDCB86A19C0DFE000D4EDEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,6 +117,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB47EAB819F30C6700CFD315 /* Myo View */ = {
+			isa = PBXGroup;
+			children = (
+				FB47EABB19F30D1300CFD315 /* BOZMyoView.h */,
+				FB47EABC19F30D1300CFD315 /* BOZMyoView.m */,
+				FB47EAC319F3338B00CFD315 /* BOZMyoView.xib */,
+			);
+			name = "Myo View";
+			sourceTree = "<group>";
+		};
+		FB47EAB919F30C9400CFD315 /* Lights */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB8A619C0E0F900D4EDEF /* BOZLightsViewController.h */,
+				FBDCB8A719C0E0F900D4EDEF /* BOZLightsViewController.m */,
+				FBDCB8AE19C0F00700D4EDEF /* BOZLightTableViewCell.h */,
+				FBDCB8AF19C0F00700D4EDEF /* BOZLightTableViewCell.m */,
+			);
+			name = Lights;
+			sourceTree = "<group>";
+		};
+		FB47EABA19F30CAF00CFD315 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB8B619C129FB00D4EDEF /* BOZLightViewController.h */,
+				FBDCB8B719C129FB00D4EDEF /* BOZLightViewController.m */,
+			);
+			name = Light;
+			sourceTree = "<group>";
+		};
 		FBDCB85C19C0DFDF00D4EDEF = {
 			isa = PBXGroup;
 			children = (
@@ -148,8 +188,9 @@
 				FBDCB87719C0DFE000D4EDEF /* BOZAppDelegate.h */,
 				FBDCB87819C0DFE000D4EDEF /* BOZAppDelegate.m */,
 				FBDCB8B319C118B900D4EDEF /* Main.storyboard */,
-				FBDCB8A219C0E0AF00D4EDEF /* Lights */,
-				FBDCB8B519C129E100D4EDEF /* Light */,
+				FBDCB8A219C0E0AF00D4EDEF /* Controllers */,
+				FBDCB8B519C129E100D4EDEF /* Light View */,
+				FB47EAB819F30C6700CFD315 /* Myo View */,
 				FBDCB87A19C0DFE000D4EDEF /* Images.xcassets */,
 				FBDCB86F19C0DFE000D4EDEF /* Supporting Files */,
 			);
@@ -193,24 +234,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FBDCB8A219C0E0AF00D4EDEF /* Lights */ = {
+		FBDCB8A219C0E0AF00D4EDEF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FBDCB8A619C0E0F900D4EDEF /* BOZLightsViewController.h */,
-				FBDCB8A719C0E0F900D4EDEF /* BOZLightsViewController.m */,
-				FBDCB8AE19C0F00700D4EDEF /* BOZLightTableViewCell.h */,
-				FBDCB8AF19C0F00700D4EDEF /* BOZLightTableViewCell.m */,
+				FB47EAB919F30C9400CFD315 /* Lights */,
+				FB47EABA19F30CAF00CFD315 /* Light */,
 			);
-			name = Lights;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
-		FBDCB8B519C129E100D4EDEF /* Light */ = {
+		FBDCB8B519C129E100D4EDEF /* Light View */ = {
 			isa = PBXGroup;
 			children = (
-				FBDCB8B619C129FB00D4EDEF /* BOZLightViewController.h */,
-				FBDCB8B719C129FB00D4EDEF /* BOZLightViewController.m */,
+				FB47EABE19F30D2100CFD315 /* BOZLightView.h */,
+				FB47EABF19F30D2100CFD315 /* BOZLightView.m */,
+				FB47EAC119F30D7200CFD315 /* BOZLightView.xib */,
 			);
-			name = Light;
+			name = "Light View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,9 +348,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB47EAC419F3338B00CFD315 /* BOZMyoView.xib in Resources */,
 				FBDCB8B419C118B900D4EDEF /* Main.storyboard in Resources */,
 				FBDCB87319C0DFE000D4EDEF /* InfoPlist.strings in Resources */,
 				FBDCB87B19C0DFE000D4EDEF /* Images.xcassets in Resources */,
+				FB47EAC219F30D7200CFD315 /* BOZLightView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +373,9 @@
 			files = (
 				FBDCB8B119C0F00700D4EDEF /* BOZLightTableViewCell.m in Sources */,
 				FBDCB8A919C0E0F900D4EDEF /* BOZLightsViewController.m in Sources */,
+				FB47EABD19F30D1300CFD315 /* BOZMyoView.m in Sources */,
 				FBDCB87919C0DFE000D4EDEF /* BOZAppDelegate.m in Sources */,
+				FB47EAC019F30D2100CFD315 /* BOZLightView.m in Sources */,
 				FBDCB87519C0DFE000D4EDEF /* main.m in Sources */,
 				FBDCB8B819C129FB00D4EDEF /* BOZLightViewController.m in Sources */,
 			);

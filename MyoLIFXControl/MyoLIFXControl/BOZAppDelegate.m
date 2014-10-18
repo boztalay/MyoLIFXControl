@@ -7,11 +7,17 @@
 //
 
 #import "BOZAppDelegate.h"
+#import <MyoKit/MyoKit.h>
 
 @implementation BOZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TLMHub sharedHub];
+    [TLMHub sharedHub].applicationIdentifier = @"com.boztalay.MyoLIFXControl";
+    [TLMHub sharedHub].myoConnectionAllowance = 1;
+    [TLMHub sharedHub].shouldNotifyInBackground = YES;
+    
     return YES;
 }
 

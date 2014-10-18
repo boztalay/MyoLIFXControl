@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="a4M-5H-lnh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="a4M-5H-lnh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -19,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="420" y="142"/>
         </scene>
-        <!--Light View Controller - No Light Selected-->
+        <!--No Light Selected-->
         <scene sceneID="eV7-qk-I0o">
             <objects>
                 <viewController id="gXu-O3-dS9" customClass="BOZLightViewController" sceneMemberID="viewController">
@@ -31,76 +33,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MSd-0C-x0L">
-                                <rect key="frame" x="50" y="115" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-l5-Qpf">
+                                <rect key="frame" x="105" y="383" width="493" height="2"/>
+                                <color key="backgroundColor" white="0.84826388888888893" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="d7e-le-sJJ"/>
+                                </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="n59-wq-i7M">
-                                <rect key="frame" x="300" y="131" width="355" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="minimumTrackTintColor" red="0.97437995672225952" green="0.17238615453243256" blue="0.19237273931503296" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="gXu-O3-dS9" eventType="valueChanged" id="Pvg-sR-MfD"/>
-                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpInside" id="GFH-mC-XGU"/>
-                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpOutside" id="Ngv-ga-a1x"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XL8-ZW-vQa">
-                                <rect key="frame" x="300" y="200" width="355" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="minimumTrackTintColor" red="0.24018819630146027" green="1" blue="0.24745678901672363" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="gXu-O3-dS9" eventType="valueChanged" id="TB7-57-Yx3"/>
-                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpOutside" id="FtB-41-4eY"/>
-                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpInside" id="gJj-5d-gja"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YYf-HL-gGM">
-                                <rect key="frame" x="300" y="271" width="355" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="minimumTrackTintColor" red="0.2403329610824585" green="0.10671830922365189" blue="0.99830764532089233" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="gXu-O3-dS9" eventType="valueChanged" id="hz6-6l-I92"/>
-                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpInside" id="QEU-hz-j4u"/>
-                                    <action selector="sliderValueFinishedChanging:" destination="gXu-O3-dS9" eventType="touchUpOutside" id="gYE-jK-J1D"/>
-                                </connections>
-                            </slider>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3QQ-Oh-4sP">
-                                <rect key="frame" x="302" y="332" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="powerSwitchValueChanged:" destination="gXu-O3-dS9" eventType="valueChanged" id="Yh6-VL-TNp"/>
-                                </connections>
-                            </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bulb Label" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yiU-1X-oOr">
-                                <rect key="frame" x="364" y="333" width="289" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gXu-O3-dS9" id="qeA-Tn-yZx"/>
-                                </connections>
-                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZI-64-tQV" customClass="BOZLightView">
+                                <rect key="frame" x="0.0" y="64" width="703" height="320"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffP-xy-cLo" customClass="BOZMyoView">
+                                <rect key="frame" x="20" y="384" width="663" height="384"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <constraints>
+                            <constraint firstItem="oZI-64-tQV" firstAttribute="leading" secondItem="gVI-Uy-MtC" secondAttribute="leading" id="2Hc-zv-C3h"/>
+                            <constraint firstItem="pgv-l5-Qpf" firstAttribute="top" secondItem="oZI-64-tQV" secondAttribute="bottom" constant="-1" id="3Qz-lc-6vF"/>
+                            <constraint firstItem="ffP-xy-cLo" firstAttribute="top" secondItem="gVI-Uy-MtC" secondAttribute="centerY" id="5Hc-rS-jYY"/>
+                            <constraint firstItem="oZI-64-tQV" firstAttribute="bottom" secondItem="gVI-Uy-MtC" secondAttribute="centerYWithinMargins" id="7PN-Fg-wjr"/>
+                            <constraint firstAttribute="trailing" secondItem="oZI-64-tQV" secondAttribute="trailing" id="BTB-no-HjT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ffP-xy-cLo" secondAttribute="trailing" id="Cip-LV-18Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pgv-l5-Qpf" secondAttribute="trailing" constant="85" id="KMm-ZV-ebo"/>
+                            <constraint firstItem="oZI-64-tQV" firstAttribute="top" secondItem="3LK-qj-qxf" secondAttribute="bottom" id="Qoq-VG-wzl"/>
+                            <constraint firstItem="ffP-xy-cLo" firstAttribute="leading" secondItem="gVI-Uy-MtC" secondAttribute="leadingMargin" id="dg9-jQ-20K"/>
+                            <constraint firstItem="WQ8-xd-H80" firstAttribute="top" secondItem="ffP-xy-cLo" secondAttribute="bottom" id="gdF-jp-Z5U"/>
+                            <constraint firstItem="pgv-l5-Qpf" firstAttribute="leading" secondItem="gVI-Uy-MtC" secondAttribute="leadingMargin" constant="85" id="o3L-r4-f8h"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="No Light Selected" id="UuH-mc-Z4e"/>
                     <connections>
-                        <outlet property="blueSlider" destination="YYf-HL-gGM" id="yN7-lg-tgk"/>
-                        <outlet property="colorView" destination="MSd-0C-x0L" id="Jph-9S-bnF"/>
-                        <outlet property="greenSlider" destination="XL8-ZW-vQa" id="a7y-tU-Irv"/>
-                        <outlet property="labelLabel" destination="yiU-1X-oOr" id="0ct-G1-fIl"/>
-                        <outlet property="powerSwitch" destination="3QQ-Oh-4sP" id="a4R-a2-aEI"/>
-                        <outlet property="redSlider" destination="n59-wq-i7M" id="pFO-8z-dpP"/>
+                        <outlet property="lightView" destination="oZI-64-tQV" id="Xuk-Dd-GwH"/>
+                        <outlet property="myoView" destination="ffP-xy-cLo" id="JNa-AH-wgS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6GV-IX-cuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324" y="142"/>
+            <point key="canvasLocation" x="1323.5" y="142"/>
         </scene>
-        <!--Lights View Controller - Lights-->
+        <!--Lights-->
         <scene sceneID="JY8-0j-bRh">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="xH6-hX-TNt" customClass="BOZLightsViewController" sceneMemberID="viewController">
@@ -108,7 +82,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LightCell" textLabel="ttU-35-xzd" detailTextLabel="9CT-Ei-odF" style="IBUITableViewCellStyleValue1" id="NTF-Cb-ZbE" customClass="BOZLightTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
