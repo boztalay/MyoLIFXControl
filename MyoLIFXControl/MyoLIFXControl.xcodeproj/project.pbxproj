@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB47EAB419F2DF7400CFD315 /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB47EAB319F2DF7400CFD315 /* MyoKit.framework */; };
+		FB47EAB719F2DF8400CFD315 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB47EAB619F2DF8400CFD315 /* CoreBluetooth.framework */; };
 		FBDCB86919C0DFE000D4EDEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86819C0DFE000D4EDEF /* Foundation.framework */; };
 		FBDCB86B19C0DFE000D4EDEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86A19C0DFE000D4EDEF /* CoreGraphics.framework */; };
 		FBDCB86D19C0DFE000D4EDEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86C19C0DFE000D4EDEF /* UIKit.framework */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB47EAB319F2DF7400CFD315 /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = MyoLIFXControl/MyoKit.framework; sourceTree = "<group>"; };
+		FB47EAB619F2DF8400CFD315 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		FBDCB86519C0DFE000D4EDEF /* MyoLIFXControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyoLIFXControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDCB86819C0DFE000D4EDEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBDCB86A19C0DFE000D4EDEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,7 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB47EAB719F2DF8400CFD315 /* CoreBluetooth.framework in Frameworks */,
 				FBDCB8A119C0E08200D4EDEF /* libz.dylib in Frameworks */,
+				FB47EAB419F2DF7400CFD315 /* MyoKit.framework in Frameworks */,
 				FBDCB89F19C0E07B00D4EDEF /* SystemConfiguration.framework in Frameworks */,
 				FBDCB89D19C0E06C00D4EDEF /* libLIFXKit.a in Frameworks */,
 				FBDCB86B19C0DFE000D4EDEF /* CoreGraphics.framework in Frameworks */,
@@ -124,6 +130,8 @@
 		FBDCB86719C0DFE000D4EDEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB47EAB619F2DF8400CFD315 /* CoreBluetooth.framework */,
+				FB47EAB319F2DF7400CFD315 /* MyoKit.framework */,
 				FBDCB8A019C0E08200D4EDEF /* libz.dylib */,
 				FBDCB89E19C0E07B00D4EDEF /* SystemConfiguration.framework */,
 				FBDCB86819C0DFE000D4EDEF /* Foundation.framework */,
@@ -447,9 +455,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyoLIFXControl",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyoLIFXControl/MyoLIFXControl-Prefix.pch";
 				INFOPLIST_FILE = "MyoLIFXControl/MyoLIFXControl-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -462,9 +475,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyoLIFXControl",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyoLIFXControl/MyoLIFXControl-Prefix.pch";
 				INFOPLIST_FILE = "MyoLIFXControl/MyoLIFXControl-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -530,6 +548,7 @@
 				FBDCB89319C0DFE000D4EDEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBDCB89419C0DFE000D4EDEF /* Build configuration list for PBXNativeTarget "MyoLIFXControlTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +557,7 @@
 				FBDCB89619C0DFE000D4EDEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
