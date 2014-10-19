@@ -18,8 +18,28 @@
 {
     self = [super initWithCoder:aDecoder];
     if(self) {
-        [self addSubview:[[[NSBundle mainBundle] loadNibNamed:kNibName owner:self options:nil] firstObject]];
+        UIView* loadedView = [[[NSBundle mainBundle] loadNibNamed:kNibName owner:self options:nil] firstObject];
+        loadedView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:loadedView];
         
+        // Yay autolayout
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:loadedView attribute:NSLayoutAttributeLeft
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeLeft
+                                                        multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:loadedView attribute:NSLayoutAttributeTop
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeTop
+                                                        multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:loadedView attribute:NSLayoutAttributeRight
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeRight
+                                                        multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:loadedView attribute:NSLayoutAttributeBottom
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeBottom
+                                                        multiplier:1.0 constant:0.0]];
+       
         self.colorView.layer.cornerRadius = 6.0f;
         self.colorView.layer.borderWidth = 1.0f;
         self.colorView.layer.borderColor = [UIColor clearColor].CGColor;

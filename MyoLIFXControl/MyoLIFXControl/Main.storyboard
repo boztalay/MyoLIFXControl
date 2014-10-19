@@ -3,7 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -33,35 +32,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZI-64-tQV" customClass="BOZLightView">
-                                <rect key="frame" x="0.0" y="64" width="703" height="320"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3LK-nz-0UW">
+                                <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZI-64-tQV" customClass="BOZLightView">
+                                        <rect key="frame" x="0.0" y="0.0" width="703" height="352"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffP-xy-cLo" customClass="BOZMyoView">
+                                        <rect key="frame" x="0.0" y="352" width="703" height="352"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-l5-Qpf">
+                                        <rect key="frame" x="85" y="351" width="533" height="2"/>
+                                        <color key="backgroundColor" white="0.84826388888888893" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="d7e-le-sJJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffP-xy-cLo" customClass="BOZMyoView">
-                                <rect key="frame" x="20" y="384" width="663" height="384"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-l5-Qpf">
-                                <rect key="frame" x="105" y="383" width="493" height="2"/>
-                                <color key="backgroundColor" white="0.84826388888888893" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="d7e-le-sJJ"/>
+                                    <constraint firstItem="pgv-l5-Qpf" firstAttribute="centerY" secondItem="3LK-nz-0UW" secondAttribute="centerY" id="0n9-bB-MTi"/>
+                                    <constraint firstAttribute="centerY" secondItem="oZI-64-tQV" secondAttribute="bottom" id="3OI-Tb-p5Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="oZI-64-tQV" secondAttribute="trailing" id="BgF-Wh-7HO"/>
+                                    <constraint firstAttribute="trailing" secondItem="ffP-xy-cLo" secondAttribute="trailing" id="HkS-UL-qYf"/>
+                                    <constraint firstItem="oZI-64-tQV" firstAttribute="leading" secondItem="3LK-nz-0UW" secondAttribute="leading" id="TsE-2m-KLa"/>
+                                    <constraint firstAttribute="bottom" secondItem="ffP-xy-cLo" secondAttribute="bottom" id="UKn-61-NGF"/>
+                                    <constraint firstItem="oZI-64-tQV" firstAttribute="top" secondItem="3LK-nz-0UW" secondAttribute="top" id="bZY-3g-5Jz"/>
+                                    <constraint firstItem="pgv-l5-Qpf" firstAttribute="leading" secondItem="3LK-nz-0UW" secondAttribute="leading" constant="85" id="hJ0-pt-mCW"/>
+                                    <constraint firstAttribute="trailing" secondItem="pgv-l5-Qpf" secondAttribute="trailing" constant="85" id="vR7-nS-1Yr"/>
+                                    <constraint firstItem="ffP-xy-cLo" firstAttribute="leading" secondItem="3LK-nz-0UW" secondAttribute="leading" id="w7e-KK-qZG"/>
+                                    <constraint firstItem="ffP-xy-cLo" firstAttribute="top" secondItem="3LK-nz-0UW" secondAttribute="centerY" id="x3d-Ta-gb0"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="oZI-64-tQV" firstAttribute="leading" secondItem="gVI-Uy-MtC" secondAttribute="leading" id="2Hc-zv-C3h"/>
-                            <constraint firstItem="pgv-l5-Qpf" firstAttribute="top" secondItem="oZI-64-tQV" secondAttribute="bottom" constant="-1" id="3Qz-lc-6vF"/>
-                            <constraint firstItem="ffP-xy-cLo" firstAttribute="top" secondItem="gVI-Uy-MtC" secondAttribute="centerY" id="5Hc-rS-jYY"/>
-                            <constraint firstItem="oZI-64-tQV" firstAttribute="bottom" secondItem="gVI-Uy-MtC" secondAttribute="centerYWithinMargins" id="7PN-Fg-wjr"/>
-                            <constraint firstAttribute="trailing" secondItem="oZI-64-tQV" secondAttribute="trailing" id="BTB-no-HjT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ffP-xy-cLo" secondAttribute="trailing" id="Cip-LV-18Q"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pgv-l5-Qpf" secondAttribute="trailing" constant="85" id="KMm-ZV-ebo"/>
-                            <constraint firstItem="oZI-64-tQV" firstAttribute="top" secondItem="3LK-qj-qxf" secondAttribute="bottom" id="Qoq-VG-wzl"/>
-                            <constraint firstItem="ffP-xy-cLo" firstAttribute="leading" secondItem="gVI-Uy-MtC" secondAttribute="leadingMargin" id="dg9-jQ-20K"/>
-                            <constraint firstItem="WQ8-xd-H80" firstAttribute="top" secondItem="ffP-xy-cLo" secondAttribute="bottom" id="gdF-jp-Z5U"/>
-                            <constraint firstItem="pgv-l5-Qpf" firstAttribute="leading" secondItem="gVI-Uy-MtC" secondAttribute="leadingMargin" constant="85" id="o3L-r4-f8h"/>
+                            <constraint firstItem="3LK-nz-0UW" firstAttribute="top" secondItem="3LK-qj-qxf" secondAttribute="bottom" id="RdM-T1-zAg"/>
+                            <constraint firstAttribute="trailing" secondItem="3LK-nz-0UW" secondAttribute="trailing" id="WVD-Yo-E4u"/>
+                            <constraint firstItem="3LK-nz-0UW" firstAttribute="leading" secondItem="gVI-Uy-MtC" secondAttribute="leading" id="ZGr-DL-Iss"/>
+                            <constraint firstItem="WQ8-xd-H80" firstAttribute="top" secondItem="3LK-nz-0UW" secondAttribute="bottom" id="uWw-Je-6YB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="No Light Selected" id="UuH-mc-Z4e"/>

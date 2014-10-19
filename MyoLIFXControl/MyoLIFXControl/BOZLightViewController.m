@@ -19,6 +19,9 @@
     
     self.lightView.layer.borderColor = [[UIColor redColor] CGColor];
     self.lightView.layer.borderWidth = 2.0f;
+    
+    self.myoView.layer.borderColor = [[UIColor blueColor] CGColor];
+    self.myoView.layer.borderWidth = 2.0f;
 }
 
 - (void)setLight:(LFXLight*)light
