@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *myoNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPoseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lockStatusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *armLabel;
 
 @end

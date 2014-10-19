@@ -41,19 +41,123 @@
                                                             toItem:self attribute:NSLayoutAttributeBottom
                                                         multiplier:1.0 constant:0.0]];
         
-        [[TLMHub sharedHub] attachToAny];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didReceivePoseChange:)
-                                                     name:TLMMyoDidReceivePoseChangedNotification
-                                                   object:nil];
+        [self initMyo];
     }
     return self;
 }
 
-#pragma mark - Pose changes
+- (void)initMyo
+{
+    [[TLMHub sharedHub] attachToAny];
+    
+    // Hub notifications
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didConnectDevice:)
+                                                 name:TLMHubDidConnectDeviceNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDisconnectDevice:)
+                                                 name:TLMHubDidDisconnectDeviceNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didAttachDevice:)
+                                                 name:TLMHubDidAttachDeviceNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDetachDevice:)
+                                                 name:TLMHubDidDetachDeviceNotification
+                                               object:nil];
+    
+    // Arms and poses
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveArmRecognizedEvent:)
+                                                 name:TLMMyoDidReceiveArmRecognizedEventNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveArmLostEvent:)
+                                                 name:TLMMyoDidReceiveArmLostEventNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceivePoseChange:)
+                                                 name:TLMMyoDidReceivePoseChangedNotification
+                                               object:nil];
+    
+    // Motion
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceivePoseChange:)
+                                                 name:TLMMyoDidReceiveAccelerometerEventNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceivePoseChange:)
+                                                 name:TLMMyoDidReceiveGyroscopeEventNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceivePoseChange:)
+                                                 name:TLMMyoDidReceiveOrientationEventNotification
+                                               object:nil];
+}
+
+#pragma mark - Myo connection notifications
+
+- (void)didConnectDevice:(NSNotification*)notification {
+    NSLog(@"Device connected!");
+}
+
+- (void)didDisconnectDevice:(NSNotification*)notification {
+    NSLog(@"Device disconnected!");
+}
+
+- (void)didAttachDevice:(NSNotification*)notification {
+    NSLog(@"Device attached!");
+    TLMMyo* myo = [[TLMHub sharedHub].myoDevices firstObject];
+    
+    self.myoNameLabel.text = myo.name;
+}
+
+- (void)didDetachDevice:(NSNotification*)notification {
+    NSLog(@"Device detached!");
+    
+    self.myoNameLabel.text = @"Uninitialized";
+}
+
+#pragma mark - Arm recognition notifications
+
+- (void)didReceiveArmRecognizedEvent:(NSNotification*)notification {
+    NSLog(@"Arm recognized: %@", notification.userInfo);
+    TLMArmRecognizedEvent* armRecognizedEvent = notification.userInfo[kTLMKeyArmRecognizedEvent];
+    
+    switch(armRecognizedEvent.arm) {
+        case TLMArmRight:
+            self.armLabel.text = @"Right";
+            break;
+        case TLMArmLeft:
+            self.armLabel.text = @"Left";
+            break;
+    }
+}
+
+- (void)didReceiveArmLostEvent:(NSNotification*)notification {
+    NSLog(@"Arm lost: %@", notification.userInfo);
+    
+    self.armLabel.text = @"Uninitialized";
+    self.currentPoseLabel.text = @"Uninitialized";
+}
+
+#pragma mark - Pose change notification
 
 - (void)didReceivePoseChange:(NSNotification*)notification {
+    NSLog(@"Pose change: %@", notification.userInfo);
+    
     TLMPose* pose = notification.userInfo[kTLMKeyPose];
     
     switch(pose.type) {
@@ -79,6 +183,24 @@
             self.currentPoseLabel.text = @"Unknown";
             break;
     }
+}
+
+#pragma mark - Motion data notifications
+
+- (void)didReceiveAccelerometerEvent:(NSNotification*)notification {
+    TLMAccelerometerEvent* accelerometerEvent = notification.userInfo[kTLMKeyAccelerometerEvent];
+    GLKVector3 accelerationVector = accelerometerEvent.vector;
+}
+
+- (void)didReceiveGyroscopeEvent:(NSNotification*)notification {
+    TLMGyroscopeEvent* gyroscopeEvent = notification.userInfo[kTLMKeyGyroscopeEvent];
+    GLKVector3 gyroVector = gyroscopeEvent.vector;
+}
+
+- (void)didReceiveOrientationEvent:(NSNotification*)notification {
+    TLMOrientationEvent* orientationEvent = notification.userInfo[kTLMKeyOrientationEvent];
+    GLKQuaternion orientationQuaternion = orientationEvent.quaternion;
+    GLKVector3 orientationVector = orientationQuaternion.v;
 }
 
 @end
