@@ -16,6 +16,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.lightView.layer.borderColor = [[UIColor redColor] CGColor];
+    self.lightView.layer.borderWidth = 2.0f;
 }
 
 - (void)setLight:(LFXLight*)light

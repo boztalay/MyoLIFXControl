@@ -20,11 +20,6 @@
 		FBDCB87519C0DFE000D4EDEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB87419C0DFE000D4EDEF /* main.m */; };
 		FBDCB87919C0DFE000D4EDEF /* BOZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB87819C0DFE000D4EDEF /* BOZAppDelegate.m */; };
 		FBDCB87B19C0DFE000D4EDEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB87A19C0DFE000D4EDEF /* Images.xcassets */; };
-		FBDCB88219C0DFE000D4EDEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB88119C0DFE000D4EDEF /* XCTest.framework */; };
-		FBDCB88319C0DFE000D4EDEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86819C0DFE000D4EDEF /* Foundation.framework */; };
-		FBDCB88419C0DFE000D4EDEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB86C19C0DFE000D4EDEF /* UIKit.framework */; };
-		FBDCB88C19C0DFE000D4EDEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBDCB88A19C0DFE000D4EDEF /* InfoPlist.strings */; };
-		FBDCB88E19C0DFE000D4EDEF /* MyoLIFXControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB88D19C0DFE000D4EDEF /* MyoLIFXControlTests.m */; };
 		FBDCB89D19C0E06C00D4EDEF /* libLIFXKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB89C19C0E05200D4EDEF /* libLIFXKit.a */; };
 		FBDCB89F19C0E07B00D4EDEF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB89E19C0E07B00D4EDEF /* SystemConfiguration.framework */; };
 		FBDCB8A119C0E08200D4EDEF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDCB8A019C0E08200D4EDEF /* libz.dylib */; };
@@ -35,13 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FBDCB88519C0DFE000D4EDEF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FBDCB85D19C0DFDF00D4EDEF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FBDCB86419C0DFE000D4EDEF;
-			remoteInfo = MyoLIFXControl;
-		};
 		FBDCB89B19C0E05200D4EDEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FBDCB89719C0E05200D4EDEF /* LIFXKit.xcodeproj */;
@@ -71,11 +59,7 @@
 		FBDCB87719C0DFE000D4EDEF /* BOZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BOZAppDelegate.h; sourceTree = "<group>"; };
 		FBDCB87819C0DFE000D4EDEF /* BOZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BOZAppDelegate.m; sourceTree = "<group>"; };
 		FBDCB87A19C0DFE000D4EDEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FBDCB88019C0DFE000D4EDEF /* MyoLIFXControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyoLIFXControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDCB88119C0DFE000D4EDEF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FBDCB88919C0DFE000D4EDEF /* MyoLIFXControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyoLIFXControlTests-Info.plist"; sourceTree = "<group>"; };
-		FBDCB88B19C0DFE000D4EDEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FBDCB88D19C0DFE000D4EDEF /* MyoLIFXControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyoLIFXControlTests.m; sourceTree = "<group>"; };
 		FBDCB89719C0E05200D4EDEF /* LIFXKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LIFXKit.xcodeproj; path = MyoLIFXControl/LIFXKit/LIFXKit.xcodeproj; sourceTree = "<group>"; };
 		FBDCB89E19C0E07B00D4EDEF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBDCB8A019C0E08200D4EDEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -101,16 +85,6 @@
 				FBDCB86B19C0DFE000D4EDEF /* CoreGraphics.framework in Frameworks */,
 				FBDCB86D19C0DFE000D4EDEF /* UIKit.framework in Frameworks */,
 				FBDCB86919C0DFE000D4EDEF /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBDCB87D19C0DFE000D4EDEF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBDCB88219C0DFE000D4EDEF /* XCTest.framework in Frameworks */,
-				FBDCB88419C0DFE000D4EDEF /* UIKit.framework in Frameworks */,
-				FBDCB88319C0DFE000D4EDEF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +126,6 @@
 			children = (
 				FBDCB89719C0E05200D4EDEF /* LIFXKit.xcodeproj */,
 				FBDCB86E19C0DFE000D4EDEF /* MyoLIFXControl */,
-				FBDCB88719C0DFE000D4EDEF /* MyoLIFXControlTests */,
 				FBDCB86719C0DFE000D4EDEF /* Frameworks */,
 				FBDCB86619C0DFE000D4EDEF /* Products */,
 			);
@@ -162,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				FBDCB86519C0DFE000D4EDEF /* MyoLIFXControl.app */,
-				FBDCB88019C0DFE000D4EDEF /* MyoLIFXControlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,24 +176,6 @@
 				FBDCB87119C0DFE000D4EDEF /* InfoPlist.strings */,
 				FBDCB87419C0DFE000D4EDEF /* main.m */,
 				FBDCB87619C0DFE000D4EDEF /* MyoLIFXControl-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FBDCB88719C0DFE000D4EDEF /* MyoLIFXControlTests */ = {
-			isa = PBXGroup;
-			children = (
-				FBDCB88D19C0DFE000D4EDEF /* MyoLIFXControlTests.m */,
-				FBDCB88819C0DFE000D4EDEF /* Supporting Files */,
-			);
-			path = MyoLIFXControlTests;
-			sourceTree = "<group>";
-		};
-		FBDCB88819C0DFE000D4EDEF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FBDCB88919C0DFE000D4EDEF /* MyoLIFXControlTests-Info.plist */,
-				FBDCB88A19C0DFE000D4EDEF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -273,24 +227,6 @@
 			productReference = FBDCB86519C0DFE000D4EDEF /* MyoLIFXControl.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FBDCB87F19C0DFE000D4EDEF /* MyoLIFXControlTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FBDCB89419C0DFE000D4EDEF /* Build configuration list for PBXNativeTarget "MyoLIFXControlTests" */;
-			buildPhases = (
-				FBDCB87C19C0DFE000D4EDEF /* Sources */,
-				FBDCB87D19C0DFE000D4EDEF /* Frameworks */,
-				FBDCB87E19C0DFE000D4EDEF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FBDCB88619C0DFE000D4EDEF /* PBXTargetDependency */,
-			);
-			name = MyoLIFXControlTests;
-			productName = MyoLIFXControlTests;
-			productReference = FBDCB88019C0DFE000D4EDEF /* MyoLIFXControlTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -303,9 +239,6 @@
 				TargetAttributes = {
 					FBDCB86419C0DFE000D4EDEF = {
 						DevelopmentTeam = FMKG4J2L9M;
-					};
-					FBDCB87F19C0DFE000D4EDEF = {
-						TestTargetID = FBDCB86419C0DFE000D4EDEF;
 					};
 				};
 			};
@@ -328,7 +261,6 @@
 			projectRoot = "";
 			targets = (
 				FBDCB86419C0DFE000D4EDEF /* MyoLIFXControl */,
-				FBDCB87F19C0DFE000D4EDEF /* MyoLIFXControlTests */,
 			);
 		};
 /* End PBXProject section */
@@ -356,14 +288,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBDCB87E19C0DFE000D4EDEF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBDCB88C19C0DFE000D4EDEF /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -381,37 +305,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBDCB87C19C0DFE000D4EDEF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBDCB88E19C0DFE000D4EDEF /* MyoLIFXControlTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FBDCB88619C0DFE000D4EDEF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FBDCB86419C0DFE000D4EDEF /* MyoLIFXControl */;
-			targetProxy = FBDCB88519C0DFE000D4EDEF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FBDCB87119C0DFE000D4EDEF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FBDCB87219C0DFE000D4EDEF /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FBDCB88A19C0DFE000D4EDEF /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBDCB88B19C0DFE000D4EDEF /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -533,46 +433,6 @@
 			};
 			name = Release;
 		};
-		FBDCB89519C0DFE000D4EDEF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyoLIFXControl.app/MyoLIFXControl";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MyoLIFXControl/MyoLIFXControl-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MyoLIFXControlTests/MyoLIFXControlTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		FBDCB89619C0DFE000D4EDEF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyoLIFXControl.app/MyoLIFXControl";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MyoLIFXControl/MyoLIFXControl-Prefix.pch";
-				INFOPLIST_FILE = "MyoLIFXControlTests/MyoLIFXControlTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,15 +450,6 @@
 			buildConfigurations = (
 				FBDCB89219C0DFE000D4EDEF /* Debug */,
 				FBDCB89319C0DFE000D4EDEF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FBDCB89419C0DFE000D4EDEF /* Build configuration list for PBXNativeTarget "MyoLIFXControlTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBDCB89519C0DFE000D4EDEF /* Debug */,
-				FBDCB89619C0DFE000D4EDEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
