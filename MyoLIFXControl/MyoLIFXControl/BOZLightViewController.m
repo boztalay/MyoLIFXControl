@@ -16,6 +16,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.myoView.delegate = self;
 }
 
 - (void)setLight:(LFXLight*)light
@@ -24,6 +26,18 @@
     self.lightView.light = _light;
     
     self.title = _light.deviceID;
+}
+
+- (void)myoUnlockedPoseFingersSpread
+{
+    if(self.light != nil) {
+        [self.lightView toggleLight];
+    }
+}
+
+- (void)myoUnlockedPoseFist
+{
+    
 }
 
 @end

@@ -11,10 +11,16 @@
 #import <MyoKit/MyoKit.h>
 
 #define kNibName @"BOZMyoView"
+#define kUnlockTimeout 1.5
 
 @interface BOZMyoView()
 
 @property (strong, nonatomic) BOZVectorProcessor* accelerationProcessor;
+@property (strong, nonatomic) BOZVectorProcessor* gyroProcessor;
+@property (strong, nonatomic) BOZVectorProcessor* orientationProcessor;
+
+@property (strong, nonatomic) NSTimer* lockTimer;
+@property (nonatomic) BOOL isLocked;
 
 @end
 
@@ -49,6 +55,8 @@
                                                         multiplier:1.0 constant:0.0]];
         
         self.accelerationProcessor = [[BOZVectorProcessor alloc] init];
+        self.gyroProcessor = [[BOZVectorProcessor alloc] init];
+        self.orientationProcessor = [[BOZVectorProcessor alloc] init];
         
         [self initMyo];
     }
@@ -57,7 +65,13 @@
 
 - (void)initMyo
 {
+    // Find a Myo
+    
     [[TLMHub sharedHub] attachToAny];
+    
+    // Init the locking logic
+    
+    self.isLocked = YES;
     
     // Hub notifications
     
@@ -153,6 +167,9 @@
             self.armLabel.text = @"Left";
             break;
     }
+    
+    self.isLocked = YES;
+    [self updateLockedStatusLabel];
 }
 
 - (void)didReceiveArmLostEvent:(NSNotification*)notification {
@@ -160,6 +177,7 @@
     
     self.armLabel.text = @"Uninitialized";
     self.currentPoseLabel.text = @"Uninitialized";
+    self.lockStatusLabel.text = @"Uninitialized";
 }
 
 #pragma mark - Pose change notification
@@ -192,23 +210,92 @@
             self.currentPoseLabel.text = @"Unknown";
             break;
     }
+    
+    if(pose.type == TLMPoseTypeUnknown) {
+        return;
+    }
+    
+    if(pose.type == TLMPoseTypeThumbToPinky) {
+        [self unlock];
+    } else {
+        if(!self.isLocked) {
+            [self unlock];
+        }
+    }
+    
+    if(self.isLocked) {
+        return;
+    }
+    
+    switch(pose.type) {
+        case TLMPoseTypeFist:
+            [self.delegate myoUnlockedPoseFist];
+            break;
+        case TLMPoseTypeWaveIn:
+            [self.delegate myoUnlockedPoseWaveIn];
+            break;
+        case TLMPoseTypeWaveOut:
+            [self.delegate myoUnlockedPoseWaveOut];
+            break;
+        case TLMPoseTypeFingersSpread:
+            [self.delegate myoUnlockedPoseFingersSpread];
+            break;
+        default: break;
+    }
+}
+
+#pragma mark - Lock management
+
+- (void)unlock
+{
+    self.isLocked = NO;
+    
+    [self.lockTimer invalidate];
+    self.lockTimer = [NSTimer scheduledTimerWithTimeInterval:kUnlockTimeout target:self selector:@selector(lock:) userInfo:nil repeats:NO];
+    
+    [self updateLockedStatusLabel];
+}
+
+- (void)lock:(NSTimer*)timer
+{
+    self.isLocked = YES;
+    [self updateLockedStatusLabel];
+}
+
+- (void)holdUnlock
+{
+    [self.lockTimer invalidate];
+}
+
+- (void)forceLock
+{
+    [self.lockTimer invalidate];
+    [self lock:nil];
+}
+
+- (void)updateLockedStatusLabel
+{
+    if(self.isLocked) {
+        self.lockStatusLabel.text = @"Locked";
+    } else {
+        self.lockStatusLabel.text = @"Unlocked";
+    }
 }
 
 #pragma mark - Motion data notifications
 
 - (void)didReceiveAccelerometerEvent:(NSNotification*)notification {
     TLMAccelerometerEvent* accelerometerEvent = notification.userInfo[kTLMKeyAccelerometerEvent];
-    GLKVector3 accelerationVector = accelerometerEvent.vector;
     
-    [self.accelerationProcessor addReading:accelerationVector atTime:accelerometerEvent.timestamp];
-    
+    [self.accelerationProcessor addReading:accelerometerEvent.vector atTime:accelerometerEvent.timestamp];
     self.accelerationView.vector = self.accelerationProcessor.smoothedVector;
 }
 
 - (void)didReceiveGyroscopeEvent:(NSNotification*)notification {
     TLMGyroscopeEvent* gyroscopeEvent = notification.userInfo[kTLMKeyGyroscopeEvent];
-    GLKVector3 gyroVector = gyroscopeEvent.vector;
-    self.gyroView.vector = gyroVector;
+    
+    [self.gyroProcessor addReading:gyroscopeEvent.vector atTime:gyroscopeEvent.timestamp];
+    self.gyroView.vector = self.gyroProcessor.smoothedVector;
 }
 
 - (void)didReceiveOrientationEvent:(NSNotification*)notification {
@@ -219,7 +306,8 @@
     
     GLKVector3 orientationVector = GLKVector3Make(orientationEulerAngles.roll.degrees, orientationEulerAngles.pitch.degrees, orientationEulerAngles.yaw.degrees);
     
-    self.orientationView.vector = orientationVector;
+    [self.orientationProcessor addReading:orientationVector atTime:orientationEvent.timestamp];
+    self.orientationView.vector = self.orientationProcessor.smoothedVector;
 }
 
 @end

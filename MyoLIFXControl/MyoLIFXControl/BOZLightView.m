@@ -79,6 +79,14 @@
     [self updatePowerSwitchFromLight];
 }
 
+#pragma mark - External Control
+
+- (void)toggleLight
+{
+    [self.powerSwitch setOn:!self.powerSwitch.isOn animated:YES];
+    [self powerSwitchValueChanged:nil];
+}
+
 #pragma mark - Sliders
 
 - (IBAction)sliderValueChanged:(id)sender

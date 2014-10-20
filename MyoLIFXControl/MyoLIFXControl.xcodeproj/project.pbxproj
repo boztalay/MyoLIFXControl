@@ -56,6 +56,7 @@
 		FBCA28C919F47E86002E6C0D /* BOZVectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BOZVectorView.xib; sourceTree = "<group>"; };
 		FBCA28CC19F4B020002E6C0D /* BOZVectorProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOZVectorProcessor.h; sourceTree = "<group>"; };
 		FBCA28CD19F4B020002E6C0D /* BOZVectorProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOZVectorProcessor.m; sourceTree = "<group>"; };
+		FBCA28D019F4CE5F002E6C0D /* BOZMyoViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BOZMyoViewDelegate.h; sourceTree = "<group>"; };
 		FBDCB86519C0DFE000D4EDEF /* MyoLIFXControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyoLIFXControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDCB86819C0DFE000D4EDEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBDCB86A19C0DFE000D4EDEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +106,7 @@
 				FB47EABB19F30D1300CFD315 /* BOZMyoView.h */,
 				FB47EABC19F30D1300CFD315 /* BOZMyoView.m */,
 				FB47EAC319F3338B00CFD315 /* BOZMyoView.xib */,
+				FBCA28D019F4CE5F002E6C0D /* BOZMyoViewDelegate.h */,
 			);
 			name = "Myo View";
 			sourceTree = "<group>";

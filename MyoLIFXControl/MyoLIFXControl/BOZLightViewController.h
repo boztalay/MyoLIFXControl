@@ -11,7 +11,7 @@
 #import "BOZLightView.h"
 #import "BOZMyoView.h"
 
-@interface BOZLightViewController : UIViewController <LFXLightObserver, UITextFieldDelegate>
+@interface BOZLightViewController : UIViewController <LFXLightObserver, BOZMyoViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet BOZLightView* lightView;
 @property (weak, nonatomic) IBOutlet BOZMyoView* myoView;
