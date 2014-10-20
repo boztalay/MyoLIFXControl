@@ -3,14 +3,18 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BOZMyoView">
             <connections>
+                <outlet property="accelerationView" destination="rvs-p8-AEq" id="SOw-VY-tWD"/>
                 <outlet property="armLabel" destination="Dpd-c7-Mj4" id="w1M-t5-hr6"/>
                 <outlet property="currentPoseLabel" destination="3Jg-1d-hik" id="yvc-o2-twb"/>
+                <outlet property="gyroView" destination="QQ1-1S-BKi" id="BIu-ST-W22"/>
                 <outlet property="lockStatusLabel" destination="xSS-bl-vTh" id="3cx-bz-g2b"/>
                 <outlet property="myoNameLabel" destination="AjK-mA-gFC" id="CK6-w2-hL2"/>
+                <outlet property="orientationView" destination="mnR-Ij-zLp" id="4qE-xa-BiC"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -66,6 +70,48 @@
                     <color key="textColor" white="0.59999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rvs-p8-AEq" customClass="BOZVectorView">
+                    <rect key="frame" x="30" y="124" width="180" height="180"/>
+                    <color key="backgroundColor" white="0.87789351851851849" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="5oT-JN-Ock"/>
+                        <constraint firstAttribute="width" secondItem="rvs-p8-AEq" secondAttribute="height" multiplier="1:1" id="D89-gL-q6Y"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acceleration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtR-If-l3s">
+                    <rect key="frame" x="77" y="98" width="86" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-1S-BKi" customClass="BOZVectorView">
+                    <rect key="frame" x="261" y="124" width="180" height="180"/>
+                    <color key="backgroundColor" white="0.87789351851851849" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="QQ1-1S-BKi" secondAttribute="height" multiplier="1:1" id="ixG-B2-FTh"/>
+                        <constraint firstAttribute="height" constant="180" id="qOs-u8-nua"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gyro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RZ-9s-Wi1">
+                    <rect key="frame" x="335" y="98" width="33" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnR-Ij-zLp" customClass="BOZVectorView">
+                    <rect key="frame" x="493" y="124" width="180" height="180"/>
+                    <color key="backgroundColor" white="0.87789351851851849" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="mnR-Ij-zLp" secondAttribute="height" multiplier="1:1" id="V0b-PS-NPU"/>
+                        <constraint firstAttribute="height" constant="180" id="euw-Kv-CsU"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orientation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqM-NF-AST">
+                    <rect key="frame" x="545" y="98" width="76" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -74,21 +120,33 @@
                 <constraint firstItem="7XH-dg-wm6" firstAttribute="leading" secondItem="Jl8-if-Nof" secondAttribute="leading" id="7XV-X4-nml"/>
                 <constraint firstItem="7XH-dg-wm6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="7r4-5W-Zc7"/>
                 <constraint firstItem="Dpd-c7-Mj4" firstAttribute="centerY" secondItem="Jl8-if-Nof" secondAttribute="centerY" id="8kK-9n-kpL"/>
+                <constraint firstAttribute="bottom" secondItem="rvs-p8-AEq" secondAttribute="bottom" constant="30" id="DM0-Jj-beX"/>
+                <constraint firstAttribute="trailing" secondItem="mnR-Ij-zLp" secondAttribute="trailing" constant="30" id="DTH-hT-a8f"/>
                 <constraint firstAttribute="centerX" secondItem="AjK-mA-gFC" secondAttribute="trailing" constant="25" id="DrX-GP-uhN"/>
+                <constraint firstAttribute="bottom" secondItem="mnR-Ij-zLp" secondAttribute="bottom" constant="30" id="GiW-De-LoM"/>
+                <constraint firstItem="rvs-p8-AEq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="ID9-u1-OZS"/>
                 <constraint firstItem="zgH-Mj-Dmg" firstAttribute="leading" secondItem="QEs-2x-hrq" secondAttribute="leading" id="IuJ-QP-U9r"/>
                 <constraint firstItem="3Jg-1d-hik" firstAttribute="centerY" secondItem="7XH-dg-wm6" secondAttribute="centerY" id="LDj-4v-7yG"/>
+                <constraint firstItem="rvs-p8-AEq" firstAttribute="centerX" secondItem="RtR-If-l3s" secondAttribute="centerX" id="Psq-oQ-BUE"/>
+                <constraint firstAttribute="centerX" secondItem="QQ1-1S-BKi" secondAttribute="centerX" id="Qb1-z6-U3W"/>
                 <constraint firstItem="AjK-mA-gFC" firstAttribute="centerY" secondItem="QEs-2x-hrq" secondAttribute="centerY" id="Tjr-VJ-piN"/>
+                <constraint firstItem="3RZ-9s-Wi1" firstAttribute="centerX" secondItem="QQ1-1S-BKi" secondAttribute="centerX" id="VAM-vn-2EK"/>
                 <constraint firstItem="AjK-mA-gFC" firstAttribute="leading" secondItem="QEs-2x-hrq" secondAttribute="trailing" constant="8" id="VyB-u0-Ygq"/>
                 <constraint firstItem="7XH-dg-wm6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="25" id="WYP-uG-hfz"/>
                 <constraint firstItem="QEs-2x-hrq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="a0x-fJ-1Xy"/>
                 <constraint firstItem="zgH-Mj-Dmg" firstAttribute="top" secondItem="QEs-2x-hrq" secondAttribute="bottom" constant="10" id="bBA-y1-tt8"/>
                 <constraint firstItem="Jl8-if-Nof" firstAttribute="top" secondItem="7XH-dg-wm6" secondAttribute="bottom" constant="10" id="d7Z-jV-FIG"/>
+                <constraint firstItem="mnR-Ij-zLp" firstAttribute="centerX" secondItem="VqM-NF-AST" secondAttribute="centerX" id="dKf-d1-8yv"/>
                 <constraint firstItem="Dpd-c7-Mj4" firstAttribute="leading" secondItem="Jl8-if-Nof" secondAttribute="trailing" constant="8" id="e7f-fi-aVg"/>
                 <constraint firstItem="xSS-bl-vTh" firstAttribute="trailing" secondItem="AjK-mA-gFC" secondAttribute="trailing" id="fA4-ov-TM4"/>
+                <constraint firstAttribute="bottom" secondItem="QQ1-1S-BKi" secondAttribute="bottom" constant="30" id="gtL-mo-eiU"/>
                 <constraint firstItem="3Jg-1d-hik" firstAttribute="trailing" secondItem="Dpd-c7-Mj4" secondAttribute="trailing" id="hm0-CC-Pxk"/>
                 <constraint firstItem="3Jg-1d-hik" firstAttribute="leading" secondItem="7XH-dg-wm6" secondAttribute="trailing" constant="8" id="pFP-Yd-MPX"/>
+                <constraint firstItem="QQ1-1S-BKi" firstAttribute="top" secondItem="3RZ-9s-Wi1" secondAttribute="bottom" constant="8" id="pdD-OD-4jl"/>
                 <constraint firstItem="QEs-2x-hrq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="sxZ-IN-KBt"/>
                 <constraint firstItem="xSS-bl-vTh" firstAttribute="centerY" secondItem="zgH-Mj-Dmg" secondAttribute="centerY" id="wXa-s3-49D"/>
+                <constraint firstItem="rvs-p8-AEq" firstAttribute="top" secondItem="RtR-If-l3s" secondAttribute="bottom" constant="8" id="xEE-fX-FXJ"/>
+                <constraint firstItem="mnR-Ij-zLp" firstAttribute="top" secondItem="VqM-NF-AST" secondAttribute="bottom" constant="8" id="yNM-kF-hWU"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

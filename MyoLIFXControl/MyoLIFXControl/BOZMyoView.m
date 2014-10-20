@@ -7,9 +7,16 @@
 //
 
 #import "BOZMyoView.h"
+#import "BOZVectorProcessor.h"
 #import <MyoKit/MyoKit.h>
 
 #define kNibName @"BOZMyoView"
+
+@interface BOZMyoView()
+
+@property (strong, nonatomic) BOZVectorProcessor* accelerationProcessor;
+
+@end
 
 @implementation BOZMyoView
 
@@ -40,6 +47,8 @@
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:self attribute:NSLayoutAttributeBottom
                                                         multiplier:1.0 constant:0.0]];
+        
+        self.accelerationProcessor = [[BOZVectorProcessor alloc] init];
         
         [self initMyo];
     }
@@ -92,17 +101,17 @@
     // Motion
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceivePoseChange:)
+                                             selector:@selector(didReceiveAccelerometerEvent:)
                                                  name:TLMMyoDidReceiveAccelerometerEventNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceivePoseChange:)
+                                             selector:@selector(didReceiveGyroscopeEvent:)
                                                  name:TLMMyoDidReceiveGyroscopeEventNotification
                                                object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceivePoseChange:)
+                                             selector:@selector(didReceiveOrientationEvent:)
                                                  name:TLMMyoDidReceiveOrientationEventNotification
                                                object:nil];
 }
@@ -190,17 +199,27 @@
 - (void)didReceiveAccelerometerEvent:(NSNotification*)notification {
     TLMAccelerometerEvent* accelerometerEvent = notification.userInfo[kTLMKeyAccelerometerEvent];
     GLKVector3 accelerationVector = accelerometerEvent.vector;
+    
+    [self.accelerationProcessor addReading:accelerationVector atTime:accelerometerEvent.timestamp];
+    
+    self.accelerationView.vector = self.accelerationProcessor.smoothedVector;
 }
 
 - (void)didReceiveGyroscopeEvent:(NSNotification*)notification {
     TLMGyroscopeEvent* gyroscopeEvent = notification.userInfo[kTLMKeyGyroscopeEvent];
     GLKVector3 gyroVector = gyroscopeEvent.vector;
+    self.gyroView.vector = gyroVector;
 }
 
 - (void)didReceiveOrientationEvent:(NSNotification*)notification {
     TLMOrientationEvent* orientationEvent = notification.userInfo[kTLMKeyOrientationEvent];
+    
     GLKQuaternion orientationQuaternion = orientationEvent.quaternion;
-    GLKVector3 orientationVector = orientationQuaternion.v;
+    TLMEulerAngles* orientationEulerAngles = [TLMEulerAngles anglesWithQuaternion:orientationQuaternion];
+    
+    GLKVector3 orientationVector = GLKVector3Make(orientationEulerAngles.roll.degrees, orientationEulerAngles.pitch.degrees, orientationEulerAngles.yaw.degrees);
+    
+    self.orientationView.vector = orientationVector;
 }
 
 @end
