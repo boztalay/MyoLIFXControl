@@ -60,7 +60,8 @@
     [self.myoView holdUnlock];
 }
 
-// NOTE: The brightness control won't be symmetrical between arms
+// NOTE: The brightness control won't be symmetrical between arms,
+// and doesn't take the X axis orientation into account
 - (void)myoOrientationReading:(NSValue*)orientationValue
 {
     if(self.light == nil || !self.isControllingColor) {
