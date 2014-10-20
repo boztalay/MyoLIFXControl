@@ -213,6 +213,9 @@
     
     if(pose.type == TLMPoseTypeUnknown) {
         return;
+    } else if(pose.type == TLMPoseTypeRest && [self.delegate respondsToSelector:@selector(myoAtRest)]) {
+        [self.delegate myoAtRest];
+        return;
     }
     
     if(pose.type == TLMPoseTypeThumbToPinky) {
@@ -229,16 +232,24 @@
     
     switch(pose.type) {
         case TLMPoseTypeFist:
-            [self.delegate myoUnlockedPoseFist];
+            if([self.delegate respondsToSelector:@selector(myoUnlockedPoseFist)]) {
+                [self.delegate myoUnlockedPoseFist];
+            }
             break;
         case TLMPoseTypeWaveIn:
-            [self.delegate myoUnlockedPoseWaveIn];
+            if([self.delegate respondsToSelector:@selector(myoUnlockedPoseWaveIn)]) {
+                [self.delegate myoUnlockedPoseWaveIn];
+            }
             break;
         case TLMPoseTypeWaveOut:
-            [self.delegate myoUnlockedPoseWaveOut];
+            if([self.delegate respondsToSelector:@selector(myoUnlockedPoseWaveOut)]) {
+                [self.delegate myoUnlockedPoseWaveOut];
+            }
             break;
         case TLMPoseTypeFingersSpread:
-            [self.delegate myoUnlockedPoseFingersSpread];
+            if([self.delegate respondsToSelector:@selector(myoUnlockedPoseFingersSpread)]) {
+                [self.delegate myoUnlockedPoseFingersSpread];
+            }
             break;
         default: break;
     }
@@ -254,12 +265,20 @@
     self.lockTimer = [NSTimer scheduledTimerWithTimeInterval:kUnlockTimeout target:self selector:@selector(lock:) userInfo:nil repeats:NO];
     
     [self updateLockedStatusLabel];
+    
+    if([self.delegate respondsToSelector:@selector(myoUnlocked)]) {
+        [self.delegate myoUnlocked];
+    }
 }
 
 - (void)lock:(NSTimer*)timer
 {
     self.isLocked = YES;
     [self updateLockedStatusLabel];
+    
+    if(timer != nil && [self.delegate respondsToSelector:@selector(myoUnlocked)]) {
+        [self.delegate myoLocked];
+    }
 }
 
 - (void)holdUnlock
@@ -289,6 +308,10 @@
     
     [self.accelerationProcessor addReading:accelerometerEvent.vector atTime:accelerometerEvent.timestamp];
     self.accelerationView.vector = self.accelerationProcessor.smoothedVector;
+    
+    if([self.delegate respondsToSelector:@selector(myoAccelerationReading:)]) {
+        [self.delegate myoAccelerationReading:[self.accelerationProcessor smoothedVectorValue]];
+    }
 }
 
 - (void)didReceiveGyroscopeEvent:(NSNotification*)notification {
@@ -296,6 +319,10 @@
     
     [self.gyroProcessor addReading:gyroscopeEvent.vector atTime:gyroscopeEvent.timestamp];
     self.gyroView.vector = self.gyroProcessor.smoothedVector;
+    
+    if([self.delegate respondsToSelector:@selector(myoGyroReading:)]) {
+        [self.delegate myoGyroReading:[self.gyroProcessor smoothedVectorValue]];
+    }
 }
 
 - (void)didReceiveOrientationEvent:(NSNotification*)notification {
@@ -308,6 +335,10 @@
     
     [self.orientationProcessor addReading:orientationVector atTime:orientationEvent.timestamp];
     self.orientationView.vector = self.orientationProcessor.smoothedVector;
+    
+    if([self.delegate respondsToSelector:@selector(myoOrientationReading:)]) {
+        [self.delegate myoOrientationReading:[self.orientationProcessor smoothedVectorValue]];
+    }
 }
 
 @end

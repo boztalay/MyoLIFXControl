@@ -7,16 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GLKit/GLKit.h>
 
-@protocol BOZMyoViewDelegate
+@protocol BOZMyoViewDelegate <NSObject>
 
 @optional
 
+- (void)myoAtRest;
 - (void)myoUnlocked;
 - (void)myoUnlockedPoseFist;
 - (void)myoUnlockedPoseFingersSpread;
 - (void)myoUnlockedPoseWaveIn;
 - (void)myoUnlockedPoseWaveOut;
 - (void)myoLocked;
+
+- (void)myoAccelerationReading:(NSValue*)accelerationValue;
+- (void)myoGyroReading:(NSValue*)gyroValue;
+- (void)myoOrientationReading:(NSValue*)orientationValue;
 
 @end

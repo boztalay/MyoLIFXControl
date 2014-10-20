@@ -20,8 +20,6 @@
 
 @property (strong, nonatomic) LFXLight* light;
 
-- (void)toggleLight;
-
 - (IBAction)sliderValueChanged:(id)sender;
 - (IBAction)sliderValueFinishedChanging:(id)sender;
 

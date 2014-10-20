@@ -18,4 +18,8 @@
 
 @property (strong, nonatomic) LFXLight* light;
 
+@property (nonatomic) BOOL isControllingColor;
+@property (nonatomic) BOOL gotFirstOrientationReading;
+@property (nonatomic) GLKVector3 firstOrientationReading;
+
 @end

@@ -14,5 +14,6 @@
 @property (nonatomic) GLKVector3 smoothedVector;
 
 - (void)addReading:(GLKVector3)readingVector atTime:(NSDate*)time;
+- (NSValue*)smoothedVectorValue;
 
 @end

@@ -73,4 +73,10 @@
     self.smoothedVector = GLKVector3DivideScalar(averageVector, kReadingsHistoryLength);
 }
 
+// Hackiest hackity hack ever. Thanks Objective-C
+- (NSValue*)smoothedVectorValue
+{
+    return [NSValue value:&_smoothedVector withObjCType:@encode(GLKVector3)];
+}
+
 @end
