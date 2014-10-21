@@ -65,10 +65,6 @@
 
 - (void)initMyo
 {
-    // Find a Myo
-    
-    [[TLMHub sharedHub] attachToAny];
-    
     // Init the locking logic
     
     self.isLocked = YES;
@@ -128,6 +124,10 @@
                                              selector:@selector(didReceiveOrientationEvent:)
                                                  name:TLMMyoDidReceiveOrientationEventNotification
                                                object:nil];
+    
+    // Find a Myo
+    
+    [[TLMHub sharedHub] attachToAny];
 }
 
 #pragma mark - Myo connection notifications
