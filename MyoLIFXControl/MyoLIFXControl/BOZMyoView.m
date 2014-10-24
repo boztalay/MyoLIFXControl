@@ -11,7 +11,7 @@
 #import <MyoKit/MyoKit.h>
 
 #define kNibName @"BOZMyoView"
-#define kUnlockTimeout 1.5
+#define kUnlockTimeout 1.75
 
 @interface BOZMyoView()
 

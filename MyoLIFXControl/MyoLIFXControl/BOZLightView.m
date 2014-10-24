@@ -166,7 +166,11 @@
 - (void)updateColorViewFromLight
 {
     UIColor* lightColor = [self.light.color UIColor];
-    self.colorView.backgroundColor = lightColor;
+    
+    [UIView animateWithDuration:0.3 animations:^(void) {
+        self.colorView.backgroundColor = lightColor;
+    }];
+     
     [self updateColorViewBorder];
 }
 

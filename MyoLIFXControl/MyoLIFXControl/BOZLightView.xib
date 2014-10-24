@@ -58,6 +58,9 @@
                     <rect key="frame" x="339" y="274" width="334" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="bwc-PX-bfq"/>
+                    </connections>
                 </textField>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kqa-q1-gTz">
                     <rect key="frame" x="260" y="273" width="51" height="31"/>
