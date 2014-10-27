@@ -24,7 +24,8 @@
 @property (nonatomic) CGFloat brightnessStep;
 
 @property (nonatomic) BOOL isControllingColor;
-@property (nonatomic) BOOL gotFirstOrientationReading;
+@property (nonatomic) BOOL gotFirstReadings;
 @property (nonatomic) GLKVector3 firstOrientationReading;
+@property (strong, nonatomic) LFXHSBKColor* firstColor;
 
 @end

@@ -13,10 +13,13 @@
 #define kBrightnessStepInterval 0.1f
 #define kBrightnessLockGracePeriod 1.0f
 
-#define kPitchHueControlThreshold 12.0f
-#define kHueStep 1.0f
-#define kYawSaturationControlThreshold 12.0f
-#define kSaturationStep 0.01f
+#define kPitchSaturationRange 70.0f
+#define kPitchSaturationHalfRange (kPitchSaturationRange / 2.0f)
+#define kSaturationMax 1.0f
+
+#define kYawHueRange 80.0f
+#define kHueMax 360.0f
+#define kHueIncrementPerUnitYaw (kHueMax / kYawHueRange)
 
 @implementation BOZLightViewController
 
@@ -28,7 +31,7 @@
     
     self.isControllingBrightness = NO;
     self.isControllingColor = NO;
-    self.gotFirstOrientationReading = NO;
+    self.gotFirstReadings = NO;
     
     self.myoView.delegate = self;
 }
@@ -111,7 +114,7 @@
     [self.brightnessLockGraceTimer invalidate];
     
     self.isControllingColor = YES;
-    self.gotFirstOrientationReading = NO;
+    self.gotFirstReadings = NO;
     [self.myoView holdUnlock];
 }
 
@@ -126,9 +129,10 @@
     GLKVector3 orientation;
     [orientationValue getValue:&orientation];
     
-    if(!self.gotFirstOrientationReading) {
+    if(!self.gotFirstReadings) {
         self.firstOrientationReading = orientation;
-        self.gotFirstOrientationReading = YES;
+        self.firstColor = self.light.color;
+        self.gotFirstReadings = YES;
         return;
     }
     
@@ -146,41 +150,31 @@
         yawOffInitial += 360.0f;
     }
     
-    LFXHSBKColor* currentColor = self.light.color;
-    CGFloat nextHue = currentColor.hue;
-    CGFloat nextSaturation = currentColor.saturation;
-   
-    if(fabsf(pitchOffInitial) > kPitchHueControlThreshold) {
-        float hueStep = kHueStep;
-        if(pitchOffInitial > 0.0f) {
-            hueStep *= -1.0f;
-        }
-        
-        nextHue += hueStep;
-        if(nextHue > 360.0f) {
-            nextHue = 360.0f;
-        } else if(nextHue < 0.0f) {
-            nextHue = 0.0f;
-        }
+    // Saturation with pitch
+    
+    if(pitchOffInitial > kPitchSaturationHalfRange) {
+        pitchOffInitial = kPitchSaturationHalfRange;
+    } else if(pitchOffInitial < -kPitchSaturationHalfRange) {
+        pitchOffInitial = -kPitchSaturationHalfRange;
     }
     
-    if(fabsf(yawOffInitial) > kYawSaturationControlThreshold) {
-        float saturationStep = kSaturationStep;
-        if(yawOffInitial > 0.0f) {
-            saturationStep *= -1.0f;
-        }
-        
-        nextSaturation += saturationStep;
-        if(nextSaturation > 1.0f) {
-            nextSaturation = 1.0f;
-        } else if(nextSaturation < 0.0f) {
-            nextSaturation = 0.0f;
-        }
+    CGFloat pitchRangeProportion = (pitchOffInitial + kPitchSaturationHalfRange) / kPitchSaturationRange;
+    pitchRangeProportion = 1.0f - pitchRangeProportion;
+    CGFloat nextSaturation = pitchRangeProportion * kSaturationMax;
+    if(nextSaturation > kSaturationMax) {
+        nextSaturation = kSaturationMax;
+    } else if(nextSaturation < 0.0f) {
+        nextSaturation = 0.0f;
     }
     
-    NSLog(@"%0.2f | %0.2f |||| %0.2f | %0.2f", pitchOffInitial, yawOffInitial, nextHue, nextSaturation);
+    // Hue with yaw
     
-    [self.light setColor:[LFXHSBKColor colorWithHue:nextHue saturation:nextSaturation brightness:currentColor.brightness]];
+    CGFloat hueOffset = yawOffInitial * kHueIncrementPerUnitYaw;
+    CGFloat nextHue = fmodf(self.firstColor.hue + hueOffset, kHueMax);
+    
+    NSLog(@"%0.2f | %0.2f |||| %0.2f | %0.2f", pitchOffInitial, yawOffInitial, nextSaturation, nextHue);
+    
+    [self.light setColor:[LFXHSBKColor colorWithHue:nextHue saturation:nextSaturation brightness:self.light.color.brightness]];
 }
 
 - (void)myoAtRest
@@ -192,7 +186,7 @@
     
     if(self.isControllingColor) {
         self.isControllingColor = NO;
-        self.gotFirstOrientationReading = NO;
+        self.gotFirstReadings = NO;
         [self.myoView forceLock];
     }
 }
